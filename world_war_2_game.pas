@@ -37,18 +37,28 @@ VAR
 
 PROCEDURE partida_estandar;
 VAR
+ opcion: integer;
  BEGIN
-
-
-
-
-
-
-
-
-
+ REPEAT
+ writeln('-----------------------------------------------------------');
+ writeln('|1| - Cargue nombre de Jugadores y coloque sus barcos - |1|');
+ writeln('-----------------------------------------------------------');
+ writeln('|2| -               Empezar partida                   - |2|');
+ writeln('-----------------------------------------------------------');
+ writeln('|3| -          Regresar al menu principal             - |3|');
+ writeln('-----------------------------------------------------------');
+ writeln();
+ writeln('===========================================');
+ write('Seleccione opcion: ');
+ readln(opcion);
+ CASE opcion OF
+      1:BEGIN
+        END;
+      2:BEGIN
+        END;
  END;
-
+ UNTIL(opcion = 3);
+ END;
 
 PROCEDURE menu_principal;
 VAR
