@@ -173,6 +173,7 @@ BEGIN
   ELSE
   BEGIN
    eje_y:= valida_columna;
+   writeln();
    writeln('Ingrese las filas de forma consecutiva: ');
    eje_x:= 0;
    FOR f:= 1 TO 3 DO
@@ -194,6 +195,7 @@ BEGIN
  FOR j:= 1 TO 3 DO
  BEGIN
   writeln('Destructor ',j);
+  writeln();
   write('>>> De que forma desea colocarlo [v/h]?: ');
   readln(opcion);
   IF opcion = 'h' THEN
@@ -352,6 +354,77 @@ PROCEDURE mostrar_introduccion_instrucciones_de_juego;
  clrscr;
  END;
 
+PROCEDURE cartel_turno_jugador_1;
+ BEGIN
+ textcolor(lightcyan);
+ writeln(' __ __|                                           ');
+ writeln('   |  |   |   __|  __ \    _ \                    ');
+ writeln('   |  |   |  |     |   |  (   |                   ');
+ writeln('  _|)\__,_| _|    _|  _| \___/                    ');
+ writeln('                                                  ');
+ writeln('      _)                           |            _|');
+ writeln('    |  |   |   _` |   _` |   _` |   _ \    __|   |');
+ writeln('    |  |   |  (   |  (   |  (   |  (   |  |      |');
+ writeln('    | \__,_| \__, | \__,_| \__,_| \___/  _|     _|');
+ writeln('___/         |___/                                ');
+ delay(2000);
+ clrscr;
+ END;
+
+PROCEDURE cartel_turno_jugador_2;
+ BEGIN
+ textcolor(lightred);
+ writeln(' __ __|                                                  ');
+ writeln('   |  |   |   __|  __ \    _ \                           ');
+ writeln('   |  |   |  |     |   |  (   |                          ');
+ writeln('  _|)\__,_| _|    _|  _| \___/                           ');
+ writeln('                                                         ');
+ writeln('      _)                           |              ___ \  ');
+ writeln('    |  |   |   _` |   _` |   _` |   _ \    __|       ) | ');
+ writeln('    |  |   |  (   |  (   |  (   |  (   |  |         __/  ');
+ writeln('    | \__,_| \__, | \__,_| \__,_| \___/  _|      _____|  ');
+ writeln('___/         |___/                                       ');
+ delay(2000);
+ clrscr;
+ END;
+
+PROCEDURE game_over;
+ BEGIN
+  clrscr;
+  textcolor(lightred);
+  writeln('  |   |                ');
+  writeln('  |   |   _` |   __|   ');
+  writeln('  ___ |  (   | \__ \   ');
+  writeln(' _|  _| \__,_| ____/  ');
+  writeln('                                          ');
+  writeln('                        | _)      |       ');
+  writeln('  __ \    _ \   __|  _` |  |   _` |   _ \ ');
+  writeln('  |   |   __/  |    (   |  |  (   |  (   |');
+  writeln('  .__/  \___| _|   \__,_| _| \__,_| \___/ ');
+  writeln('  _|                                      ');
+  writeln();
+  writeln();
+  writeln('HAS PERDIDO LA BATALLA. TODOS TUS BUQUES FUERON HUNDIDOS');
+  delay(3000);
+  clrscr;
+ END;
+
+PROCEDURE you_win;
+ BEGIN
+  textcolor(lightgreen);
+  writeln('  |   |                ');
+  writeln('  |   |   _` |   __|   ');
+  writeln('  ___ |  (   | \__ \   ');
+  writeln(' _|  _| \__,_| ____/  ');
+  writeln();
+  writeln();
+  writeln('HAS GANADO LA BATALLA. ');
+  delay(3000);
+  clrscr;
+ END;
+
+
+
 PROCEDURE empezar_partida;
 VAR
  objetivo: string;
@@ -374,6 +447,7 @@ VAR
  turno_jugador:= turno_jugador + 1;
  IF turno_jugador = 1 THEN
   BEGIN
+  cartel_turno_jugador_1;
   textcolor(white);
   writeln('GRAN BRETANIA');
   writeln();
@@ -388,11 +462,11 @@ VAR
   writeln('CANTIDAD DE BARCOS QUE HUNDISTE: ',barcos_destruidos_por_el_jugador_1);
   writeln('===============================================');
   writeln();
-  writeln('=================================================');
+  writeln('===============================================');
   writeln('TUS BARCOS EN POSICION DE ATAQUE');
-  writeln('=================================================');
+  writeln('===============================================');
+  writeln();
   mostrar_tabla(tab_1);
-  writeln('=================================================');
   writeln();
   writeln();
   textcolor(white);
@@ -519,6 +593,8 @@ VAR
   END;
   turno_jugador:= turno_jugador + 1;
   delay(2000);
+  clrscr;
+  cartel_turno_jugador_2;
   END
  ELSE
   BEGIN
@@ -536,11 +612,11 @@ VAR
   writeln('CANTIDAD DE BARCOS QUE HUNDISTE: ',barcos_destruidos_por_el_jugador_2);
   writeln('===============================================');
   writeln();
-  writeln('=================================================');
+  writeln('===============================================');
   writeln('TUS BARCOS EN POSICION DE ATAQUE');
-  writeln('=================================================');
+  writeln('===============================================');
   mostrar_tabla(tab_2);
-  writeln('=================================================');
+  writeln('===============================================');
   textcolor(white);
   writeln();
   writeln();
@@ -667,6 +743,35 @@ VAR
   delay(2000);
   END;
  UNTIL (total_barcos_jugador_1 = 0) OR (total_barcos_jugador_2 = 0);
+ IF  total_barcos_jugador_1 = 0 THEN
+  BEGIN
+  game_over;
+  writeln();
+  writeln('Nombre jugador 1: ',jugador_1);
+  writeln('Barcos que has hundido: ',barcos_destruidos_por_el_jugador_1 );
+  clrscr;
+  you_win;
+  writeln('Nombre jugador 1: ',jugador_2);
+  writeln('Barcos que has hundido: ',barcos_destruidos_por_el_jugador_2);
+  inicializa_tablero_1;
+  END
+ ELSE
+  BEGIN
+  game_over;
+  writeln();
+  writeln('Nombre jugador 2: ',jugador_2);
+  writeln('Barcos que has hundido: ',barcos_destruidos_por_el_jugador_2 );
+  clrscr;
+  you_win;
+  writeln('Nombre jugador 1: ',jugador_1);
+  writeln('Barcos que has hundido: ',barcos_destruidos_por_el_jugador_1);
+  inicializa_tablero_2;
+  END;
+  clrscr;
+  writeln('=====================================================================================');
+  writeln('PARA PODER JUGAR NUEVAMENTE VUELVA A CARGAR LOS BARCOS EN LA PRIMERA OPCION! DEL MENU');
+  writeln('=====================================================================================');
+  delay(2000);
  END;
 
 PROCEDURE partida_estandar;
@@ -783,7 +888,7 @@ VAR
 
 PROCEDURE cartel_inicial_start;
  BEGIN
- textcolor(blue);
+ textcolor(brown);
  gotoxy(whereX, whereY + 5);
  gotoxy(whereX + 50, whereY);
  writeln('||============================================================||');
