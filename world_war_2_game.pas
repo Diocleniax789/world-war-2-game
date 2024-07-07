@@ -423,7 +423,145 @@ PROCEDURE you_win;
   clrscr;
  END;
 
+PROCEDURE cartel_acorazado_hundido;
+ BEGIN
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+  writeln('     \      ___|   _ \    _ \      \    __  /     \     __ \    _\ ');
+  writeln('    _ \    |      |   |  |   |    _ \      /     _ \    |   |  |  |');
+  writeln('   ___ \   |      |   |  __ <    ___ \    /     ___ \   |   |  |  |');
+  writeln(' _/    _\ \____| \___/  _| \_\ _/    _\ ____| _/    _\ ____/  \___/');
+  writeln(' |   |  |   |   \  |  __ \ _ _|  __ \    _ \    |  |  |            ');
+  writeln(' |   |  |   |    \ |  |   |  |   |   |  |   |   |  |  |            ');
+  writeln(' ___ |  |   |  |\  |  |   |  |   |   |  |   |  _| _| _|            ');
+  writeln('_|  _| \___/  _| \_| ____/ ___| ____/  \___/   _) _) _)            ');
+  writeln('===================================================================');
+  writeln('//////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+ END;
 
+PROCEDURE cartel_acorazado_daniado;
+ BEGIN
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+  writeln('     \      ___|   _ \    _ \      \    __  /     \     __ \    _\ ');
+  writeln('    _ \    |      |   |  |   |    _ \      /     _ \    |   |  |  |');
+  writeln('   ___ \   |      |   |  __ <    ___ \    /     ___ \   |   |  |  |');
+  writeln(' _/    _\ \____| \___/  _| \_\ _/    _\ ____| _/    _\ ____/  \___/');
+  writeln(' __ \     \      \  | _ _|     \     __ \  _ \   |  |  |           ');
+  writeln('|   |   _ \      \ |   |     _ \    |   | |   |  |  |  |           ');
+  writeln('|   |  ___ \   |\  |   |    ___ \   |   | |   | _| _| _|           ');
+  writeln('____/ _/    _\ _| \_| ___| _/    _\ ____/ \___/ _) _) _)           ');
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+ END;
+
+PROCEDURE cartel_crucero_daniado;
+ BEGIN
+  writeln('========================================================');
+  writeln('|//////////////////////////////////////////////////////|');
+  writeln('========================================================');
+  writeln(' ___|   _ \   |   |   ___|  ____|   _ \     _ \         ');
+  writeln('|      |   |  |   |  |      __|    |   |  |   |         ');
+  writeln('|      __ <   |   |  |      |      __ <   |   |         ');
+  writeln('\___\| _| \_\ \___/  \____| _____| _| \_\ \___/         ');
+  writeln(' __ \     \      \  | _ _|     \     __ \  _ \   |  |  |');
+  writeln('|   |   _ \      \ |   |     _ \    |   | |   |  |  |  |');
+  writeln('|   |  ___ \   |\  |   |    ___ \   |   | |   | _| _| _|');
+  writeln('____/ _/    _\ _| \_| ___| _/    _\ ____/ \___/ _) _) _)');
+  writeln('========================================================');
+  writeln('|//////////////////////////////////////////////////////|');
+  writeln('========================================================');
+ END;
+
+PROCEDURE cartel_crucero_hundido;
+ BEGIN
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+  writeln(' ___|   _ \   |   |   ___|  ____|   _ \     _ \                    ');
+  writeln('|      |   |  |   |  |      __|    |   |  |   |                    ');
+  writeln('|      __ <   |   |  |      |      __ <   |   |                    ');
+  writeln('\___\| _| \_\ \___/  \____| _____| _| \_\ \___/                    ');
+  writeln(' |   |  |   |   \  |  __ \ _ _|  __ \    _ \    |  |  |            ');
+  writeln(' |   |  |   |    \ |  |   |  |   |   |  |   |   |  |  |            ');
+  writeln(' ___ |  |   |  |\  |  |   |  |   |   |  |   |  _| _| _|            ');
+  writeln('_|  _| \___/  _| \_| ____/ ___| ____/  \___/   _) _) _)            ');
+  writeln('===================================================================');
+  writeln('//////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+ END;
+
+PROCEDURE cartel_destructor_hundido;
+ BEGIN
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+  writeln('__ \   ____|   ___| __ __|   _ \   |   |   ___| __ __|  _ \    _ \ ');
+  writeln('|   |  __|   \___ \    |    |   |  |   |  |       |   |   |  |   | ');
+  writeln('|   |  |           |   |    __ <   |   |  |       |   |   |  __ <  ');
+  writeln('____/| ___\_| ___\_/   _|   _| \_\ \___/  \____|  _|  \___/  _| \_\');
+  writeln(' |   |  |   |   \  |  __ \ _ _|  __ \    _ \    |  |  |            ');
+  writeln(' |   |  |   |    \ |  |   |  |   |   |  |   |   |  |  |            ');
+  writeln(' ___ |  |   |  |\  |  |   |  |   |   |  |   |  _| _| _|            ');
+  writeln('_|  _| \___/  _| \_| ____/ ___| ____/  \___/   _) _) _)            ');
+  writeln('===================================================================');
+  writeln('//////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+ END;
+
+PROCEDURE cartel_destructor_daniado;
+ BEGIN
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+  writeln('__ \   ____|   ___| __ __|   _ \   |   |   ___| __ __|  _ \    _ \ ');
+  writeln('|   |  __|   \___ \    |    |   |  |   |  |       |   |   |  |   | ');
+  writeln('|   |  |           |   |    __ <   |   |  |       |   |   |  __ <  ');
+  writeln('____/| ___\_| ___\_/   _|   _| \_\ \___/  \____|  _|  \___/  _| \_\');                                                  
+  writeln(' __ \     \      \  | _ _|     \     __ \  _ \   |  |  |           ');
+  writeln('|   |   _ \      \ |   |     _ \    |   | |   |  |  |  |           ');
+  writeln('|   |  ___ \   |\  |   |    ___ \   |   | |   | _| _| _|           ');
+  writeln('____/ _/    _\ _| \_| ___| _/    _\ ____/ \___/ _) _) _)           ');
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+ END;
+
+PROCEDURE cartel_submarino_hundido;
+ BEGIN
+  writeln('===================================================================');
+  writeln('|/////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+  writeln('               |                         _)                        ');
+  writeln('   __|  |   |  __ \  __ `__ \    _` |  __|  |  __ \    _ \         ');
+  writeln(' \__ \  |   |  |   | |   |   |  (   | |     |  |   |  (   |        ');
+  writeln(' ____/ \__,_| _.__/ _|  _|  _| \__,_|_|    _| _|  _| \___/         ');
+  writeln(' |   |  |   |   \  |  __ \ _ _|  __ \    _ \    |  |  |            ');
+  writeln(' |   |  |   |    \ |  |   |  |   |   |  |   |   |  |  |            ');
+  writeln(' ___ |  |   |  |\  |  |   |  |   |   |  |   |  _| _| _|            ');
+  writeln('_|  _| \___/  _| \_| ____/ ___| ____/  \___/   _) _) _)            ');
+  writeln('===================================================================');
+  writeln('//////////////////////////////////////////////////////////////////|');
+  writeln('===================================================================');
+ END;
+
+PROCEDURE cartel_agua;
+ BEGIN
+  writeln('===========================================');
+  writeln('|/////////////////////////////////////////|');
+  writeln('===========================================');
+  writeln('     \      ___|  |   |    \     |  |  |  ');
+  writeln('    _ \    |      |   |   _ \    |  |  |  ');
+  writeln('   ___ \   |   |  |   |  ___ \  _| _| _|  ');
+  writeln(' _/    _\ \____| \___/ _/    _\ _) _) _)  ');
+  writeln('==========================================');
+  writeln('|////////////////////////////////////////|');
+  writeln('==========================================');
+ END;
 
 PROCEDURE empezar_partida;
 VAR
@@ -463,7 +601,11 @@ VAR
   writeln('===============================================');
   writeln();
   writeln('===============================================');
+  writeln('|/////////////////////////////////////////////|');
+  writeln('===============================================');
   writeln('TUS BARCOS EN POSICION DE ATAQUE');
+  writeln('===============================================');
+  writeln('|/////////////////////////////////////////////|');
   writeln('===============================================');
   writeln();
   mostrar_tabla(tab_1);
@@ -503,9 +645,7 @@ VAR
          tab_2[fila,columna]:= '';
          textcolor(lightred);
          writeln();
-         writeln('====================');
-         writeln('ACORAZADO DANIADO!!!');
-         writeln('====================');
+         cartel_acorazado_daniado;
          END
         ELSE IF vida_acorazado_jugador_2 = 1 THEN
          BEGIN
@@ -515,9 +655,7 @@ VAR
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightgreen);
           writeln();
-          writeln('====================');
-          writeln('ACORAZADO HUNDIDO!!!');
-          writeln('====================');
+          cartel_acorazado_hundido;
          END;
         END;
 
@@ -528,9 +666,7 @@ VAR
          tab_2[fila,columna]:= '';
          textcolor(lightred);
          writeln();
-         writeln('=================');
-         writeln('CRUCERO DANIADO!!');
-         writeln('=================');
+         cartel_crucero_daniado;
          END
         ELSE IF vida_acorazado_jugador_2 = 1 THEN
          BEGIN
@@ -539,9 +675,7 @@ VAR
          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
          textcolor(lightgreen);
          writeln();
-         writeln('==================');
-         writeln('CRUCERO HUNDIDO!!!');
-         writeln('==================');
+         cartel_crucero_hundido;
          vida_crucero_jugador_2:= 3;
          END;
         END;
@@ -553,9 +687,7 @@ VAR
           tab_2[fila,columna]:= '';
           textcolor(lightred);
           writeln();
-          writeln('====================');
-          writeln('DESTRUCTOR DANIADO!!');
-          writeln('====================');
+          cartel_destructor_daniado;
           END
          ELSE IF vida_destructor_jugador_2 = 1 THEN
           BEGIN
@@ -564,9 +696,7 @@ VAR
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightgreen);
           writeln();
-          writeln('=====================');
-          writeln('DESTRUCTOR HUNDIDO!!!');
-          writeln('=====================');
+          cartel_destructor_hundido;
           vida_destructor_jugador_2:= 2;
           END;
          END;
@@ -577,18 +707,13 @@ VAR
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightgreen);
           writeln();
-          writeln('====================');
-          writeln('SUBMARINO HUNDIDO!!!');
-          writeln('===================');
+          cartel_submarino_hundido;
          END;
 
        5:BEGIN
          textcolor(lightcyan);
          writeln();
-         writeln();
-         writeln('======');
-         writeln('AGUA!!');
-         writeln('======');
+         cartel_agua;
          END;
   END;
   turno_jugador:= turno_jugador + 1;
@@ -613,10 +738,14 @@ VAR
   writeln('===============================================');
   writeln();
   writeln('===============================================');
+  writeln('|/////////////////////////////////////////////|');
+  writeln('===============================================');
   writeln('TUS BARCOS EN POSICION DE ATAQUE');
   writeln('===============================================');
-  mostrar_tabla(tab_2);
+  writeln('|/////////////////////////////////////////////|');
   writeln('===============================================');
+  writeln();
+  mostrar_tabla(tab_2);
   textcolor(white);
   writeln();
   writeln();
@@ -652,9 +781,7 @@ VAR
          tab_1[fila,columna]:= '';
          textcolor(lightred);
          writeln();
-         writeln('====================');
-         writeln('ACORAZADO DANIADO!!!');
-         writeln('====================');
+         cartel_acorazado_daniado;
          END
         ELSE IF vida_acorazado_jugador_1 = 1 THEN
          BEGIN
@@ -664,9 +791,7 @@ VAR
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
          textcolor(lightgreen);
          writeln();
-         writeln('====================');
-         writeln('ACORAZADO HUNDIDO!!!');
-         writeln('====================');
+         cartel_acorazado_hundido;
          END;
         END;
 
@@ -677,9 +802,7 @@ VAR
          tab_1[fila,columna]:= '';
          textcolor(lightred);
          writeln();
-         writeln('=================');
-         writeln('CRUCERO DANIADO!!');
-         writeln('=================');
+         cartel_crucero_daniado;
          END
         ELSE IF  vida_crucero_jugador_1 = 1 THEN
          BEGIN
@@ -689,9 +812,7 @@ VAR
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
          textcolor(lightgreen);
          writeln();
-         writeln('==================');
-         writeln('CRUCERO HUNDIDO!!!');
-         writeln('==================');
+         cartel_crucero_hundido;
          END;
         END;
 
@@ -702,9 +823,7 @@ VAR
           tab_1[fila,columna]:= '';
           textcolor(lightred);
           writeln();
-          writeln('====================');
-          writeln('DESTRUCTOR DANIADO!!');
-          writeln('====================');
+          cartel_destructor_daniado;
           END
          ELSE IF vida_destructor_jugador_1 = 1 THEN
           BEGIN
@@ -714,9 +833,7 @@ VAR
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
           textcolor(lightgreen);
           writeln();
-          writeln('=====================');
-          writeln('DESTRUCTOR HUNDIDO!!!');
-          writeln('=====================');
+          cartel_destructor_hundido;
           END;
          END;
 
@@ -726,17 +843,13 @@ VAR
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
           textcolor(lightgreen);
           writeln();
-          writeln('====================');
-          writeln('SUBMARINO HUNDIDO!!!');
-          writeln('===================');
+          cartel_submarino_hundido;
          END;
 
        5:BEGIN
          textcolor(lightcyan);
          writeln();
-         writeln('======');
-         writeln('AGUA!!');
-         writeln('======');
+         cartel_agua;
          END;
   END;
   turno_jugador:= 0;
