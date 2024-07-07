@@ -430,6 +430,70 @@ VAR
  END;              }
 
 
+PROCEDURE bandera_alemania;
+ BEGIN
+ textcolor(lightred);
+ writeln(''''''''''''''''''''''''''''''''''''''''''''',;;::::::;;,''''''''''''''''''''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''''''''''''''',:ldxO0KXX0kk0XXK0Oxdl:,''''''''''''''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''''''''''',:ox0XWWMMMWXd .. dXWMMMWWX0xo:,''''''''''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''''''''';lkXWMMMMMMMXd        xNMMMMMMMWXkl;''''''''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''''''';o0NWMMMMMMMXd           oXMMMMMMMMMMN0o''''''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''''' o0NMMMMMMMMXd         .l0WMMMMMMMMMMMMMW0l ''''''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''''''kNWMMMMMMMXd        .lk0WMMMMMNOkXMMMMMMMWNx  ''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''':OWMMMMMMMXd       .l0WMMMMMMNk:.   dXMMMMMMMWOc''''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''''OWMMMMMMWk        c0WMMMMMMNk;.       dXMMMMMMW0: ''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''';kWMMMMMMMWO;.      ;kNMMMMNk;.           dXMMMMMWk;''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''oXWMMMMMMMMMNk;.     .;kKXk;.               dXMMMWXo''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''kWMMXxd0WMMMMMNk;.      ....      .;:.        dXWMWk; ''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''c0WXd  .l0WMMMMMNk;.            .;kNW0l.        dXWKc ''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''lK0;      .l0WMMMMMNx.          .xNMMMMW0l.      ;0Kl ''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''cKXd        .l0WMMNk;.          .;kNMMMMMW0l.    dXKc ''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''':0WWXd       .lOk;.               .;kNMMMMMW0l,dXWW0: ''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''xNMMMXd        .       .;oo;.      . kNMMMMMWXNMMMNx  ''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''c0WMMMMXd            .;kNMMNk;.      .;kNMMMMMMMMW0c''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''',oXWMMMMMXd        .;kNMMMMMMNl.        .dWMMMMMMMXo''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''' ,dXMMMMMMMXd    .;kNMMMMMMW0l.        dXMMMMMMWXd''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''',oKWMMMMMMMXd;:kNMMMMMW0xl.        dXMMMMMMMWKo,''''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''''''cONMMMMMMMMWWMMMMMW0l.         dXMMMMMMMMNOc''''''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''''''''o0WMMMMMMMMMMMW0l.         dXWMMMMMMMW0o; ''''''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''''''''''oOXWMMMMMMMMXc         dXMMMMMMMWNOo; ''''''''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''''''''''''cd0XWMMMMMMXd      dXMMMMMWWX0xc  ''''''''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''''''''''''',:oxOKNNWWWXdccdXWWWNNKOxo:,''''''''''''''''''''''''''''''''''''');
+ writeln(''''''''''''''''''''''''''''''''''''''''',;:loddxxxxxxddol:;,''''''''''''''''''''''''''''''''''''''''');
+ writeln('''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''');
+ END;
+
+PROCEDURE bandera_inglesa;
+ BEGIN
+ textcolor(lightcyan);
+ writeln('MMMMWN0xl:;,,,,,,,:OWOllllllkN0c,,,,,,,;:ldOXWMMMM');
+ writeln('MMWKd;............ kNk::::::xNO,............;dKWMM');
+ writeln('MW0:.............. kNk:::;::xNO,..............:OWM');
+ writeln('MWN0d: ........... kNk::::::xNO,............;oxxON');
+ writeln('KKNWMN0d: ........ kNk::::::xNO,........ :odxdlcdK');
+ writeln('xcok0NWMN0xc ..... kWk::::::xNO,..... :oxxoccokKNW');
+ writeln('Oxdlcox0NWMWKxc,.. kNk::::::xNO,.. :oxxoccdkKWMWNX');
+ writeln('c;ldxdlclx0XWMWKxc:ONk::::::xNO::oxxocldOKWWWXOo;c');
+ writeln('o::cok00xodx0NMMMWXNNk::::::xNNK0kdodOXWMMMNOdc::o');
+ writeln('NXXXXNNWNNNNNNWWWWWWNx::::::xXWNNNNNNWWWWWWNXXXXXN');
+ writeln('koododooodooooooooodoc::::::codooooooododoodoooook');
+ writeln('o::::::::::::::::::::::::::::::::::::::::::::::::o');
+ writeln('o::::::::::::::::::::::::::::::::::::::::::::::::o');
+ writeln('o::::::::::::::::::::::::::::::::::::::::::::::::o');
+ writeln('K0000000000000000000Oo::::::oO0000000000000000000K');
+ writeln('0kkkkOXWMMMWNK0O0KNWNx::::::xNMMMMMWNKOO0XWN0kkkk0');
+ writeln(':. :d0NMWNKkocldxxxKNk::::::xNKxOXWMWKkocldxxdc,.:');
+ writeln('dd0NMWN0xocldxxo:  kNk::::::xNO,.;oOXWMWKkdlcoxxdx');
+ writeln('WWWN0xlcldxxo;.... kNx::::::xNO,....;okXWMWKOdlcoO');
+ writeln('N0xlclxxxl;....... kNx::::::xNO,.......,lkXWMWXOxk');
+ writeln('Kdoxxdl;.......... kNk::::::xNO,..........,lkKWMWW');
+ writeln('WXOl,............. kNk::::::xNO,.............,l0WM');
+ writeln('MWKo,............. kNk::::::xNO,.............,dKWM');
+ writeln('MMMWKxc; ......... kNk::::::xNO,..........;lxKWMMM');
+ writeln('MMMMMMNKkoc:::::::c0WOooooooOWKl:::::::cokKWMMMMMM');
+ END;
+
+
 PROCEDURE empezar_partida;
 VAR
  objetivo: string;
@@ -452,6 +516,8 @@ VAR
  turno_jugador:= turno_jugador + 1;
  IF turno_jugador = 1 THEN
   BEGIN
+  bandera_inglesa;
+  writeln();
   textcolor(lightgreen);
   writeln('===============================================');
   writeln('JUGADOR 1: ',jugador_1);
@@ -553,11 +619,10 @@ VAR
   turno_jugador:= turno_jugador + 1;
   delay(2000);
   END
-
-
-
  ELSE
   BEGIN
+  bandera_alemania;
+  writeln();
   textcolor(lightgreen);
   writeln('===============================================');
   writeln('JUGADOR 2: ',jugador_2);
@@ -725,6 +790,8 @@ VAR
    END;
 
 BEGIN
+bandera_alemania;
+delay(2000);
 inicializa_tablero_1;
 inicializa_tablero_2;
 menu_principal;
