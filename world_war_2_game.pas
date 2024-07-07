@@ -336,8 +336,8 @@ PROCEDURE mostrar_introduccion_instrucciones_de_juego;
  writeln('||                                                                                                                                   ||');
  writeln('||                                          BIENVENIDO AL JUEGO DE LA BATALLA DEL ATALANTICO                                         ||');
  writeln('||                                                                                                                                   ||');
- writeln('|| De 1939 a 1945 la suerte de la segunda guerra mundial dependió en buena medida del resultado final de la «batalla del Atlántico», ||');
- writeln('|| un enfrentamiento que se saldó con la pérdida de 648 submarinos alemanes, 3.500 buques mercantes aliados y de cerca de cien mil   ||');
+ writeln('|| De 1939 a 1945 la suerte de la segunda guerra mundial dependio en buena medida del resultado final de la «batalla del Atlantico», ||');
+ writeln('|| un enfrentamiento que se saldo con la perdida de 648 submarinos alemanes, 3.500 buques mercantes aliados y de cerca de cien mil   ||');
  writeln('|| hombres de uno y otro bando. En este juego tendras la oportunidad de poner aprueba tu ingenio y colocar tus buques de guerra de   ||');
  writeln('|| forma estrategica para lograr vencer a tu adversario.                                                                             ||');
  writeln('||                                                                                                                                   ||');
@@ -416,7 +416,11 @@ PROCEDURE you_win;
   writeln('  |   |   _` |   __|   ');
   writeln('  ___ |  (   | \__ \   ');
   writeln(' _|  _| \__,_| ____/  ');
-  writeln();
+  writeln('                                   |       ');
+  writeln('   _` |   _` |  __ \    _` |   _` |   _ \  ');
+  writeln('  (   |  (   |  |   |  (   |  (   |  (   | ');
+  writeln(' \__, | \__,_| _|  _| \__,_| \__,_| \___/  ');
+  writeln(' |___/                                     ');
   writeln();
   writeln('HAS GANADO LA BATALLA. ');
   delay(3000);
@@ -643,7 +647,7 @@ VAR
          BEGIN
          vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
          tab_2[fila,columna]:= '';
-         textcolor(lightred);
+         textcolor(yellow);
          writeln();
          cartel_acorazado_daniado;
          END
@@ -653,7 +657,7 @@ VAR
           tab_2[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          textcolor(lightgreen);
+          textcolor(lightred);
           writeln();
           cartel_acorazado_hundido;
          END;
@@ -664,7 +668,7 @@ VAR
          BEGIN
          vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
          tab_2[fila,columna]:= '';
-         textcolor(lightred);
+         textcolor(yellow);
          writeln();
          cartel_crucero_daniado;
          END
@@ -673,7 +677,7 @@ VAR
          tab_2[fila,columna]:= '';
          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-         textcolor(lightgreen);
+         textcolor(lightred);
          writeln();
          cartel_crucero_hundido;
          vida_crucero_jugador_2:= 3;
@@ -685,7 +689,7 @@ VAR
           BEGIN
           vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
           tab_2[fila,columna]:= '';
-          textcolor(lightred);
+          textcolor(yellow);
           writeln();
           cartel_destructor_daniado;
           END
@@ -694,7 +698,7 @@ VAR
           tab_2[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          textcolor(lightgreen);
+          textcolor(lightred);
           writeln();
           cartel_destructor_hundido;
           vida_destructor_jugador_2:= 2;
@@ -705,7 +709,7 @@ VAR
           tab_2[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          textcolor(lightgreen);
+          textcolor(lightred);
           writeln();
           cartel_submarino_hundido;
          END;
@@ -779,7 +783,7 @@ VAR
          BEGIN
          vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
          tab_1[fila,columna]:= '';
-         textcolor(lightred);
+         textcolor(yellow);
          writeln();
          cartel_acorazado_daniado;
          END
@@ -789,7 +793,7 @@ VAR
          tab_1[fila,columna]:= '';
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-         textcolor(lightgreen);
+         textcolor(lightred);
          writeln();
          cartel_acorazado_hundido;
          END;
@@ -800,7 +804,7 @@ VAR
          BEGIN
          vida_crucero_jugador_1:= vida_crucero_jugador_1 - 1;
          tab_1[fila,columna]:= '';
-         textcolor(lightred);
+         textcolor(yellow);
          writeln();
          cartel_crucero_daniado;
          END
@@ -810,7 +814,7 @@ VAR
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
          vida_crucero_jugador_1:= 3;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-         textcolor(lightgreen);
+         textcolor(lightred);
          writeln();
          cartel_crucero_hundido;
          END;
@@ -821,7 +825,7 @@ VAR
           BEGIN
           vida_destructor_jugador_1:= vida_destructor_jugador_1 - 1;
           tab_1[fila,columna]:= '';
-          textcolor(lightred);
+          textcolor(yellow);
           writeln();
           cartel_destructor_daniado;
           END
@@ -831,7 +835,7 @@ VAR
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           vida_destructor_jugador_1:= 2;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-          textcolor(lightgreen);
+          textcolor(lightred);
           writeln();
           cartel_destructor_hundido;
           END;
@@ -841,7 +845,7 @@ VAR
           tab_1[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-          textcolor(lightgreen);
+          textcolor(lightred);
           writeln();
           cartel_submarino_hundido;
          END;
@@ -868,7 +872,7 @@ VAR
   writeln('Barcos que has hundido: ',barcos_destruidos_por_el_jugador_2);
   inicializa_tablero_1;
   END
- ELSE
+ ELSE IF total_barcos_jugador_2 = 0 THEN
   BEGIN
   game_over;
   writeln();
@@ -882,7 +886,7 @@ VAR
   END;
   clrscr;
   writeln('=====================================================================================');
-  writeln('PARA PODER JUGAR NUEVAMENTE VUELVA A CARGAR LOS BARCOS EN LA PRIMERA OPCION! DEL MENU');
+  writeln('PARA PODER JUGAR NUEVAMENTE VUELVA A CARGAR LOS BARCOS EN LA PRIMERA OPCION DEL MENU!');
   writeln('=====================================================================================');
   delay(2000);
  END;
