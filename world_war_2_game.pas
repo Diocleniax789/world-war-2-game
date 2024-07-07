@@ -82,10 +82,11 @@ var
  BEGIN
  FOR f:= 1 TO 10 DO
   BEGIN
+  writeln();
   FOR j:= 1 TO 10 DO
    BEGIN
    textcolor(lightcyan);
-   write('   ',tab[f,j]);
+   write('  ',tab[f,j]);
   END;
  END;
 END;
@@ -97,6 +98,7 @@ VAR
 BEGIN
  textcolor(brown);
  writeln();
+ writeln('-------------------------------');
  writeln('COLOQUE SUS BARCOS EN POSICION ');
  writeln('-------------------------------');
  writeln();
@@ -285,39 +287,44 @@ END;
 PROCEDURE bandera_alemania;
  BEGIN
  textcolor(lightred);
-
+ writeln('               ,;cllllllc;,               ');
+ writeln('             :dOKXOc''lKNKOo:             ');
+ writeln('           ;dKWNOc. ´cdXNXWWKd;           ');
+ writeln('          ;kNMXl. .oXWNk;.cONNk;          ');
+ writeln('         ,dXXXNk;  ;ll;  . .c0Xd,         ');
+ writeln('         ;xo.´dXNd.    .d0d´ .ox;         ');
+ writeln('          ,xOc. ´c;  ..  ;kNXdoOx,        ');
+ writeln('           lKN0c.  ;kKKo. .lXMWKl         ');
+ writeln('          ,l0WNOdkNXdc´ .cONW0l,          ');
+ writeln('            :d0NWMK:  .cONN0d:            ');
+ writeln('              ;ldkkoc:oOkdl;              ');
+ writeln('               ,;cllllllc;                ');
  END;
 
 PROCEDURE bandera_inglesa;
  BEGIN
  textcolor(lightcyan);
- writeln('MMMMWN0xl:;,,,,,,,:OWOllllllkN0c,,,,,,,;:ldOXWMMMM');
- writeln('MMWKd;............ kNk::::::xNO,............;dKWMM');
- writeln('MW0:.............. kNk:::;::xNO,..............:OWM');
- writeln('MWN0d: ........... kNk::::::xNO,............;oxxON');
- writeln('KKNWMN0d: ........ kNk::::::xNO,........ :odxdlcdK');
- writeln('xcok0NWMN0xc ..... kWk::::::xNO,..... :oxxoccokKNW');
- writeln('Oxdlcox0NWMWKxc,.. kNk::::::xNO,.. :oxxoccdkKWMWNX');
- writeln('c;ldxdlclx0XWMWKxc:ONk::::::xNO::oxxocldOKWWWXOo;c');
- writeln('o::cok00xodx0NMMMWXNNk::::::xNNK0kdodOXWMMMNOdc::o');
- writeln('NXXXXNNWNNNNNNWWWWWWNx::::::xXWNNNNNNWWWWWWNXXXXXN');
- writeln('koododooodooooooooodoc::::::codooooooododoodoooook');
- writeln('o::::::::::::::::::::::::::::::::::::::::::::::::o');
- writeln('o::::::::::::::::::::::::::::::::::::::::::::::::o');
- writeln('o::::::::::::::::::::::::::::::::::::::::::::::::o');
- writeln('K0000000000000000000Oo::::::oO0000000000000000000K');
- writeln('0kkkkOXWMMMWNK0O0KNWNx::::::xNMMMMMWNKOO0XWN0kkkk0');
- writeln(':. :d0NMWNKkocldxxxKNk::::::xNKxOXWMWKkocldxxdc,.:');
- writeln('dd0NMWN0xocldxxo:  kNk::::::xNO,.;oOXWMWKkdlcoxxdx');
- writeln('WWWN0xlcldxxo;.... kNx::::::xNO,....;okXWMWKOdlcoO');
- writeln('N0xlclxxxl;....... kNx::::::xNO,.......,lkXWMWXOxk');
- writeln('Kdoxxdl;.......... kNk::::::xNO,..........,lkKWMWW');
- writeln('WXOl,............. kNk::::::xNO,.............,l0WM');
- writeln('MWKo,............. kNk::::::xNO,.............,dKWM');
- writeln('MMMWKxc; ......... kNk::::::xNO,..........;lxKWMMM');
- writeln('MMMMMMNKkoc:::::::c0WOooooooOWKl:::::::cokKWMMMMMM');
+ writeln(' MMMNOdc;,,'''';OXdccccdXO:'''',,;cdONWMM  ');
+ writeln(' MNk:.......... kKo:::;oKk,..........:xNM  ');
+ writeln(' nMNkc .........kKo:::;lKk,.........:ooON  ');
+ writeln(' KXWNKxc,...... kKo:::;oKk,...... :lodod0  ');
+ writeln(' xodOKNWKxl,... kKo:::;oKk,...,:oddoox0NW  ');
+ writeln(' dodoodkKNWKkl,,kKo:::;oKk,,cooooox0NWXOk  ');
+ writeln(' c;cdkkdox0NWWXOKKo::::oKKkkxodk0NWWKxl;c  ');
+ writeln(' K000KXXK0KXNNNNNKo:::;l0NXK0KXNNNNNK000K  ');
+ writeln(' xoooooooooooooool::::::looooooooooooooox  ');
+ writeln(' l::::::::::::::::::::::::::::::::::::::l  ');
+ writeln(' l::::::::::::::::::::::::::::::::::::::l  ');
+ writeln(' 0OOOOOOOOOOOOOOOxl::::cxOOOOOOOOOOOOOOO0  ');
+ writeln(' kddxKWMWWXOkk0XNKo:::;oKWWWMWN0kk0XKkddk  ');
+ writeln(' c:d0NWXOdooddllOKo:::;oK0ld0NWXOxooddo:c  ');
+ writeln(' XNNXOdooddl: . kKo:::;oKk,. :oOXWN0xoodk  ');
+ writeln(' XOdooddl: .... kKo:::;oKk,.....;oOXWN0xk  ');
+ writeln(' Kxddl; ....... kKo::::oKk,........;oOXWW  ');
+ writeln(' MXo .......... kKo::::oKk,...........dNM  ');
+ writeln(' MMXxc,........ kKo::::oKk,........,ckXMM  ');
+ writeln(' MMMMN0dc;;;;;;:OXxllllxX0c;;;;;:cd0NMMMM  ');
  END;
-
 
 PROCEDURE empezar_partida;
 VAR
@@ -341,6 +348,7 @@ VAR
  turno_jugador:= turno_jugador + 1;
  IF turno_jugador = 1 THEN
   BEGIN
+  textcolor(white);
   writeln('GRAN BRETANIA');
   writeln();
   bandera_inglesa;
@@ -419,15 +427,15 @@ VAR
          END
         ELSE IF vida_acorazado_jugador_2 = 1 THEN
          BEGIN
-         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
          tab_2[fila,columna]:= '';
-         vida_crucero_jugador_2:= 3;
+         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
          textcolor(lightgreen);
          writeln();
          writeln('==================');
          writeln('CRUCERO HUNDIDO!!!');
          writeln('==================');
+         vida_crucero_jugador_2:= 3;
          END;
         END;
 
@@ -446,13 +454,13 @@ VAR
           BEGIN
           tab_2[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
-          vida_destructor_jugador_2:= 2;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightgreen);
           writeln();
           writeln('=====================');
           writeln('DESTRUCTOR HUNDIDO!!!');
           writeln('=====================');
+          vida_destructor_jugador_2:= 2;
           END;
          END;
 
@@ -461,6 +469,7 @@ VAR
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightgreen);
+          writeln();
           writeln('====================');
           writeln('SUBMARINO HUNDIDO!!!');
           writeln('===================');
@@ -468,6 +477,8 @@ VAR
 
        5:BEGIN
          textcolor(lightcyan);
+         writeln();
+         writeln();
          writeln('======');
          writeln('AGUA!!');
          writeln('======');
@@ -478,6 +489,9 @@ VAR
   END
  ELSE
   BEGIN
+  textcolor(white);
+  writeln('ALEMANIA NAZI');
+  writeln();
   bandera_alemania;
   writeln();
   textcolor(lightgreen);
@@ -491,6 +505,7 @@ VAR
   writeln();
   {cartel_jugador_2; }
   mostrar_tabla(tab_2);
+  textcolor(white);
   writeln();
   writeln();
   writeln('INGRESE LAS COORDENADAS ESPECIFICAS');
@@ -500,6 +515,7 @@ VAR
   columna:= valida_columna;
   writeln();
   writeln('COORDENADAS PREPARADAS PARA EL ATAQUE');
+  writeln();
   objetivo:= tab_1[fila,columna];
   IF objetivo = 'A' THEN
    opcion:= 1
@@ -549,7 +565,7 @@ VAR
          writeln('CRUCERO DANIADO!!');
          writeln('=================');
          END
-        ELSE
+        ELSE IF  vida_crucero_jugador_1 = 1 THEN
          BEGIN
          tab_1[fila,columna]:= '';
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
@@ -574,7 +590,7 @@ VAR
           writeln('DESTRUCTOR DANIADO!!');
           writeln('====================');
           END
-         ELSE
+         ELSE IF vida_destructor_jugador_1 = 1 THEN
           BEGIN
           tab_1[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
@@ -593,6 +609,7 @@ VAR
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
           textcolor(lightgreen);
+          writeln();
           writeln('====================');
           writeln('SUBMARINO HUNDIDO!!!');
           writeln('===================');
@@ -600,6 +617,7 @@ VAR
 
        5:BEGIN
          textcolor(lightcyan);
+         writeln();
          writeln('======');
          writeln('AGUA!!');
          writeln('======');
