@@ -80,11 +80,10 @@ var
  BEGIN
  FOR f:= 1 TO 10 DO
   BEGIN
-  writeln();
   FOR j:= 1 TO 10 DO
    BEGIN
    textcolor(lightcyan);
-   write('  ',tab[f,j]);
+   write('   ',tab[f,j]);
   END;
  END;
 END;
@@ -114,6 +113,7 @@ BEGIN
    eje_y:= columna;
    tab[eje_x,eje_y]:= 'A';
   END;
+  writeln();
   writeln();
   writeln('ACORAZADO LISTO!');
   writeln();
@@ -272,195 +272,11 @@ BEGIN
   readln();
  END;
 END;
-{
-PROCEDURE localiza_objetivo_1( fila,columna,barcos_destruidos_por_el_jugador_1,total_barcos_jugador_2,vida_acorazado_jugador_2,vida_crucero_jugador_2,vida_destructor_jugador_2: integer);
-VAR
- objetivo: string;
- opcion: integer;
- BEGIN
- objetivo:= tab_2[fila,columna];
- IF objetivo = 'A' THEN
-  opcion:= 1
- ELSE IF objetivo = 'C' THEN
-   opcion:= 2
- ELSE IF objetivo = 'D' THEN
-   opcion:= 3
- ELSE IF objetivo = 'S' THEN
-   opcion:= 4
- ELSE IF objetivo = '' THEN
-  opcion:= 5;
- CASE opcion OF
-      1:BEGIN
-        vida_acorazado_jugador_2:= 4;
-        IF vida_acorazado_jugador_2 >= 2 THEN
-         BEGIN
-         vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
-         tab_2[fila,columna]:= '';
-         writeln(vida_acorazado_jugador_2);
-          writeln('ACORAZADO DANIADO!!!');
-         END
-        ELSE IF vida_acorazado_jugador_2 = 1 THEN
-         BEGIN
-          vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
-          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
-          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          writeln('ACORAZADO HUNDIDO!!!');
-         END;
-        END;
-
-      2:BEGIN
-        vida_crucero_jugador_2:= 3;
-        IF vida_crucero_jugador_2 <> 0 THEN
-         BEGIN
-         vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
-         tab_2[fila,columna]:= '';
-         writeln('CRUCERO DANIADO!!!');
-         END
-        ELSE
-         BEGIN
-         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
-         vida_crucero_jugador_2:= 3;
-         total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-         writeln('CRUCERO HUNDIDO');
-         END;
-        END;
-
-       3:BEGIN
-         vida_destructor_jugador_2:= 2;
-         IF vida_destructor_jugador_2 <> 0 THEN
-          BEGIN
-          vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
-          tab_2[fila,columna]:= '';
-          writeln('DESTRUCTOR DANIADO');
-          END
-         ELSE
-          BEGIN
-          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
-          vida_destructor_jugador_2:= 2;
-          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          writeln('DESTRUCTOR HUNDIDO');
-          END;
-         END;
-
-       4:BEGIN
-          tab_2[fila,columna]:= '';
-          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
-          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          writeln('SUBMARINO HUNDIDO');
-         END;
-
-       5:BEGIN
-         writeln('AGUA!!');
-         END;
-  END;
- END;
-
-PROCEDURE localiza_objetivo_2(fila,columna,barcos_destruidos_por_el_jugador_2,total_barcos_jugador_1,vida_acorazado_jugador_1,vida_crucero_jugador_1,vida_destructor_jugador_1: integer);
-VAR
- objetivo: string;
- opcion: integer;
- BEGIN
- objetivo:= tab_1[fila,columna];
- IF objetivo = 'A' THEN
-  opcion:= 1
- ELSE IF objetivo = 'C' THEN
-   opcion:= 2
- ELSE IF objetivo = 'D' THEN
-   opcion:= 3
- ELSE IF objetivo = 'S' THEN
-   opcion:= 4
- ELSE IF objetivo = '' THEN
-  opcion:= 5;
- CASE opcion OF
-      1:BEGIN
-        vida_acorazado_jugador_1:= 4;
-        IF vida_acorazado_jugador_1 <> 0 THEN
-         BEGIN
-         vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
-         tab_1[fila,columna]:= '';
-         writeln('ACORAZADO DANIADO!!!');
-         END;
-        END;
-
-      2:BEGIN
-        vida_crucero_jugador_1:= 3;
-        IF vida_crucero_jugador_1 <> 0 THEN
-         BEGIN
-         vida_crucero_jugador_1:= vida_crucero_jugador_1 - 1;
-         tab_1[fila,columna]:= '';
-         writeln('CRUCERO DANIADO!!!');
-         END
-        ELSE
-         BEGIN
-         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-         vida_crucero_jugador_1:= 3;
-         total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-         writeln('CRUCERO HUNDIDO');
-         END;
-        END;
-
-       3:BEGIN
-         vida_destructor_jugador_1:= 2;
-         IF vida_destructor_jugador_1 <> 0 THEN
-          BEGIN
-          vida_destructor_jugador_1:= vida_destructor_jugador_1 - 1;
-          tab_1[fila,columna]:= '';
-          writeln('DESTRUCTOR DANIADO');
-          END
-         ELSE
-          BEGIN
-          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-          vida_destructor_jugador_1:= 2;
-          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-          writeln('DESTRUCTOR HUNDIDO');
-          END;
-         END;
-
-       4:BEGIN
-          tab_1[fila,columna]:= '';
-          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-          writeln('SUBMARINO HUNDIDO');
-         END;
-
-       5:BEGIN
-         writeln('AGUA!!');
-         END;
-  END;
- END;              }
-
 
 PROCEDURE bandera_alemania;
  BEGIN
  textcolor(lightred);
- writeln(''''''''''''''''''''''''''''''''''''''''''''',;;::::::;;,''''''''''''''''''''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''''''''''''''',:ldxO0KXX0kk0XXK0Oxdl:,''''''''''''''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''''''''''',:ox0XWWMMMWXd .. dXWMMMWWX0xo:,''''''''''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''''''''';lkXWMMMMMMMXd        xNMMMMMMMWXkl;''''''''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''''''';o0NWMMMMMMMXd           oXMMMMMMMMMMN0o''''''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''''' o0NMMMMMMMMXd         .l0WMMMMMMMMMMMMMW0l ''''''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''''''kNWMMMMMMMXd        .lk0WMMMMMNOkXMMMMMMMWNx  ''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''':OWMMMMMMMXd       .l0WMMMMMMNk:.   dXMMMMMMMWOc''''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''''OWMMMMMMWk        c0WMMMMMMNk;.       dXMMMMMMW0: ''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''';kWMMMMMMMWO;.      ;kNMMMMNk;.           dXMMMMMWk;''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''oXWMMMMMMMMMNk;.     .;kKXk;.               dXMMMWXo''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''kWMMXxd0WMMMMMNk;.      ....      .;:.        dXWMWk; ''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''c0WXd  .l0WMMMMMNk;.            .;kNW0l.        dXWKc ''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''lK0;      .l0WMMMMMNx.          .xNMMMMW0l.      ;0Kl ''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''cKXd        .l0WMMNk;.          .;kNMMMMMW0l.    dXKc ''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''':0WWXd       .lOk;.               .;kNMMMMMW0l,dXWW0: ''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''xNMMMXd        .       .;oo;.      . kNMMMMMWXNMMMNx  ''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''c0WMMMMXd            .;kNMMNk;.      .;kNMMMMMMMMW0c''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''',oXWMMMMMXd        .;kNMMMMMMNl.        .dWMMMMMMMXo''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''' ,dXMMMMMMMXd    .;kNMMMMMMW0l.        dXMMMMMMWXd''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''',oKWMMMMMMMXd;:kNMMMMMW0xl.        dXMMMMMMMWKo,''''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''''''cONMMMMMMMMWWMMMMMW0l.         dXMMMMMMMMNOc''''''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''''''''o0WMMMMMMMMMMMW0l.         dXWMMMMMMMW0o; ''''''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''''''''''oOXWMMMMMMMMXc         dXMMMMMMMWNOo; ''''''''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''''''''''''cd0XWMMMMMMXd      dXMMMMMWWX0xc  ''''''''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''''''''''''',:oxOKNNWWWXdccdXWWWNNKOxo:,''''''''''''''''''''''''''''''''''''');
- writeln(''''''''''''''''''''''''''''''''''''''''',;:loddxxxxxxddol:;,''''''''''''''''''''''''''''''''''''''''');
- writeln('''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''');
+
  END;
 
 PROCEDURE bandera_inglesa;
@@ -516,6 +332,8 @@ VAR
  turno_jugador:= turno_jugador + 1;
  IF turno_jugador = 1 THEN
   BEGIN
+  writeln('GRAN BRETANIA');
+  writeln();
   bandera_inglesa;
   writeln();
   textcolor(lightgreen);
@@ -754,13 +572,33 @@ VAR
  UNTIL(opcion = 3);
  END;
 
+PROCEDURE cartel_inicial;
+ BEGIN
+ textcolor(lightcyan);
+ writeln('||==============================================================');
+ writeln('||        __ )     \  __ __| __ __|  |      ____|             ||');
+ writeln('||        __ \    _ \    |      |    |      __|               ||');
+ writeln('||        |   |  ___ \   |      |    |      |                 ||');
+ writeln('||       ____/ _/    _\ _|     _|   _____| _____|             ||');
+ writeln('||                       _ \   ____|                          ||');
+ writeln('||                      |   |  |                              ||');
+ writeln('||                      |   |  __|                            ||');
+ writeln('||                     \___/  _|                       ___|   ||');
+ writeln('||     \  __ __|  |         \      \  | __ __| _ _|    |      ||');
+ writeln('||    _ \    |    |        _ \      \ |    |     |     |      ||');
+ writeln('||   ___ \   |    |       ___ \   |\  |    |     |     |      ||');
+ writeln('|| _/___|_\ _|   _____| _/    _\ _| \_|   _|   ___|   \____|  ||');
+ writeln('||==============================================================');
+ END;
+
 PROCEDURE menu_principal;
 VAR
    opcion: integer;
    BEGIN
    REPEAT
    clrscr;
-   writeln('WORLD WAR 2 GAME V1.0');
+   cartel_inicial;
+   textcolor(white);
    writeln();
    writeln('---------------------------------');
    writeln('          MENU PRINCIPAL         ');
@@ -790,8 +628,6 @@ VAR
    END;
 
 BEGIN
-bandera_alemania;
-delay(2000);
 inicializa_tablero_1;
 inicializa_tablero_2;
 menu_principal;
