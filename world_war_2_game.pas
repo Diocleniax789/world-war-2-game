@@ -18,7 +18,7 @@ VAR
   BEGIN
   FOR j:= 1 TO 10 DO
    BEGIN
-   tab_1[f,j]:= ' ';
+   tab_1[f,j]:= '';
    END;
   END;
  END;
@@ -31,7 +31,7 @@ VAR
   BEGIN
   FOR j:= 1 TO 10 DO
    BEGIN
-   tab_2[f,j]:= ' ';
+   tab_2[f,j]:= '';
    END;
   END;
  END;
@@ -272,8 +272,90 @@ BEGIN
   readln();
  END;
 END;
+{
+PROCEDURE localiza_objetivo_1( fila,columna,barcos_destruidos_por_el_jugador_1,total_barcos_jugador_2,vida_acorazado_jugador_2,vida_crucero_jugador_2,vida_destructor_jugador_2: integer);
+VAR
+ objetivo: string;
+ opcion: integer;
+ BEGIN
+ objetivo:= tab_2[fila,columna];
+ IF objetivo = 'A' THEN
+  opcion:= 1
+ ELSE IF objetivo = 'C' THEN
+   opcion:= 2
+ ELSE IF objetivo = 'D' THEN
+   opcion:= 3
+ ELSE IF objetivo = 'S' THEN
+   opcion:= 4
+ ELSE IF objetivo = '' THEN
+  opcion:= 5;
+ CASE opcion OF
+      1:BEGIN
+        vida_acorazado_jugador_2:= 4;
+        IF vida_acorazado_jugador_2 >= 2 THEN
+         BEGIN
+         vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
+         tab_2[fila,columna]:= '';
+         writeln(vida_acorazado_jugador_2);
+          writeln('ACORAZADO DANIADO!!!');
+         END
+        ELSE IF vida_acorazado_jugador_2 = 1 THEN
+         BEGIN
+          vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          writeln('ACORAZADO HUNDIDO!!!');
+         END;
+        END;
 
-FUNCTION localiza_objetivo_1(fila,columna,barcos_destruidos_por_el_jugador_1,total_barcos_jugador_1,vida_acorazado_jugador_1,vida_crucero_jugador_1,vida_destructor_jugador_1: integer): string;
+      2:BEGIN
+        vida_crucero_jugador_2:= 3;
+        IF vida_crucero_jugador_2 <> 0 THEN
+         BEGIN
+         vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
+         tab_2[fila,columna]:= '';
+         writeln('CRUCERO DANIADO!!!');
+         END
+        ELSE
+         BEGIN
+         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+         vida_crucero_jugador_2:= 3;
+         total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+         writeln('CRUCERO HUNDIDO');
+         END;
+        END;
+
+       3:BEGIN
+         vida_destructor_jugador_2:= 2;
+         IF vida_destructor_jugador_2 <> 0 THEN
+          BEGIN
+          vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
+          tab_2[fila,columna]:= '';
+          writeln('DESTRUCTOR DANIADO');
+          END
+         ELSE
+          BEGIN
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          vida_destructor_jugador_2:= 2;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          writeln('DESTRUCTOR HUNDIDO');
+          END;
+         END;
+
+       4:BEGIN
+          tab_2[fila,columna]:= '';
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          writeln('SUBMARINO HUNDIDO');
+         END;
+
+       5:BEGIN
+         writeln('AGUA!!');
+         END;
+  END;
+ END;
+
+PROCEDURE localiza_objetivo_2(fila,columna,barcos_destruidos_por_el_jugador_2,total_barcos_jugador_1,vida_acorazado_jugador_1,vida_crucero_jugador_1,vida_destructor_jugador_1: integer);
 VAR
  objetivo: string;
  opcion: integer;
@@ -296,13 +378,7 @@ VAR
          BEGIN
          vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
          tab_1[fila,columna]:= '';
-         localiza_objetivo_1:= 'ACORAZADO DANIADO!!!';
-         END
-        ELSE
-         BEGIN
-         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
-         total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-         localiza_objetivo_1:= 'ACORAZADO HUNDIDO!!!';
+         writeln('ACORAZADO DANIADO!!!');
          END;
         END;
 
@@ -312,14 +388,14 @@ VAR
          BEGIN
          vida_crucero_jugador_1:= vida_crucero_jugador_1 - 1;
          tab_1[fila,columna]:= '';
-         localiza_objetivo_1:= 'CRUCERO DANIADO!!!';
+         writeln('CRUCERO DANIADO!!!');
          END
         ELSE
          BEGIN
-         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
          vida_crucero_jugador_1:= 3;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-         localiza_objetivo_1:= 'CRUCERO HUNDIDO' ;
+         writeln('CRUCERO HUNDIDO');
          END;
         END;
 
@@ -329,115 +405,35 @@ VAR
           BEGIN
           vida_destructor_jugador_1:= vida_destructor_jugador_1 - 1;
           tab_1[fila,columna]:= '';
-          localiza_objetivo_1:= 'DESTRUCTOR DANIADO';
+          writeln('DESTRUCTOR DANIADO');
           END
          ELSE
           BEGIN
-          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           vida_destructor_jugador_1:= 2;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-          localiza_objetivo_1:= 'DESTRUCTOR HUNDIDO';
+          writeln('DESTRUCTOR HUNDIDO');
           END;
          END;
 
        4:BEGIN
           tab_1[fila,columna]:= '';
-          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-          localiza_objetivo_1:= 'SUBMARINO HUNDIDO' ;
+          writeln('SUBMARINO HUNDIDO');
          END;
 
        5:BEGIN
-         localiza_objetivo_1:= 'AGUA!!';
+         writeln('AGUA!!');
          END;
   END;
- END;
-
-FUNCTION localiza_objetivo_2(fila,columna,barcos_destruidos_por_el_jugador_2,total_barcos_jugador_2,vida_acorazado_jugador_2,vida_crucero_jugador_2,vida_destructor_jugador_2: integer): string;
-VAR
- objetivo: string;
- opcion: integer;
- BEGIN
- objetivo:= tab_2[fila,columna];
- IF objetivo = 'A' THEN
-  opcion:= 1
- ELSE IF objetivo = 'C' THEN
-   opcion:= 2
- ELSE IF objetivo = 'D' THEN
-   opcion:= 3
- ELSE IF objetivo = 'S' THEN
-   opcion:= 4
- ELSE IF objetivo = '' THEN
-  opcion:= 5;
- CASE opcion OF
-      1:BEGIN
-        vida_acorazado_jugador_2:= 4;
-        IF vida_acorazado_jugador_2 <> 0 THEN
-         BEGIN
-         vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
-         tab_2[fila,columna]:= '';
-         localiza_objetivo_2:= 'ACORAZADO DANIADO!!!';
-         END
-        ELSE
-         BEGIN
-         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-         total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-         localiza_objetivo_2:= 'ACORAZADO HUNDIDO!!!';
-         END;
-        END;
-
-      2:BEGIN
-        vida_crucero_jugador_2:= 3;
-        IF vida_crucero_jugador_2 <> 0 THEN
-         BEGIN
-         vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
-         tab_2[fila,columna]:= '';
-         localiza_objetivo_2:= 'CRUCERO DANIADO!!!';
-         END
-        ELSE
-         BEGIN
-         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-         vida_crucero_jugador_2:= 3;
-         total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-         localiza_objetivo_2:= 'CRUCERO HUNDIDO' ;
-         END;
-        END;
-
-       3:BEGIN
-         vida_destructor_jugador_2:= 2;
-         IF vida_destructor_jugador_2 <> 0 THEN
-          BEGIN
-          vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
-          tab_2[fila,columna]:= '';
-          localiza_objetivo_2:= 'DESTRUCTOR DANIADO';
-          END
-         ELSE
-          BEGIN
-          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-          vida_destructor_jugador_2:= 2;
-          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          localiza_objetivo_2:= 'DESTRUCTOR HUNDIDO';
-          END;
-         END;
-
-       4:BEGIN
-          tab_2[fila,columna]:= '';
-          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
-          localiza_objetivo_2:= 'SUBMARINO HUNDIDO' ;
-         END;
-
-       5:BEGIN
-         localiza_objetivo_2:= 'AGUA!!';
-         END;
-  END;
- END;
+ END;              }
 
 
 PROCEDURE empezar_partida;
 VAR
- letrero_aviso:  string;
- turno_jugador,fila,columna: integer;
+ objetivo: string;
+ turno_jugador,fila,columna,opcion: integer;
  BEGIN
 { mostrar_instrucciones_de_juego;   }
  turno_jugador:= 0;
@@ -445,6 +441,12 @@ VAR
  total_barcos_jugador_2:= 10;
  barcos_destruidos_por_el_jugador_1:= 0;
  barcos_destruidos_por_el_jugador_2:= 0;
+ vida_acorazado_jugador_1:= 4;
+ vida_acorazado_jugador_2:= 4;
+ vida_crucero_jugador_1:= 3;
+ vida_crucero_jugador_2:= 3;
+ vida_destructor_jugador_2:= 2;
+ vida_destructor_jugador_1:= 2;
  REPEAT
  clrscr;
  turno_jugador:= turno_jugador + 1;
@@ -459,7 +461,6 @@ VAR
   writeln('CANTIDAD DE BARCOS QUE HUNDISTE: ',barcos_destruidos_por_el_jugador_1);
   writeln('===============================================');
   writeln();
- { cartel_jugador_1;          }
   mostrar_tabla(tab_1);
   writeln();
   writeln();
@@ -474,16 +475,92 @@ VAR
   writeln();
   writeln('COORDENADAS PREPARADAS PARA EL ATAQUE!');
   writeln();
-  letrero_aviso:= localiza_objetivo_1(fila,columna,barcos_destruidos_por_el_jugador_1,total_barcos_jugador_1,vida_acorazado_jugador_1,vida_crucero_jugador_1,vida_destructor_jugador_1);
+  objetivo:= tab_2[fila,columna];
+  IF objetivo = 'A' THEN
+   opcion:= 1
+  ELSE IF objetivo = 'C' THEN
+   opcion:= 2
+  ELSE IF objetivo = 'D' THEN
+   opcion:= 3
+  ELSE IF objetivo = 'S' THEN
+   opcion:= 4
+  ELSE IF objetivo = '' THEN
+   opcion:= 5;
+ CASE opcion OF
+
+      1:BEGIN
+        IF vida_acorazado_jugador_2 >= 2 THEN
+         BEGIN
+         vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
+         tab_2[fila,columna]:= '';
+          writeln('ACORAZADO DANIADO!!!');
+         END
+        ELSE IF vida_acorazado_jugador_2 = 1 THEN
+         BEGIN
+          vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
+          tab_2[fila,columna]:= '';
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          writeln('ACORAZADO HUNDIDO!!!');
+         END;
+        END;
+
+      2:BEGIN
+        IF vida_crucero_jugador_2 >= 2 THEN
+         BEGIN
+         vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
+         tab_2[fila,columna]:= '';
+         writeln('CRUCERO DANIADO!!');
+         END
+        ELSE IF vida_acorazado_jugador_2 = 1 THEN
+         BEGIN
+         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+         tab_2[fila,columna]:= '';
+         vida_crucero_jugador_2:= 3;
+         total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+         writeln('CRUCERO HUNDIDO!!!');
+         END;
+        END;
+
+       3:BEGIN
+         IF vida_destructor_jugador_2 >= 2 THEN
+          BEGIN
+          vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
+          tab_2[fila,columna]:= '';
+          writeln('DESTRUCTOR DANIADO!!');
+          END
+         ELSE IF vida_destructor_jugador_2 = 1 THEN
+          BEGIN
+          tab_2[fila,columna]:= '';
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          vida_destructor_jugador_2:= 2;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          writeln('DESTRUCTOR HUNDIDO!!!');
+          END;
+         END;
+
+       4:BEGIN
+          tab_2[fila,columna]:= '';
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          writeln('SUBMARINO HUNDIDO!!!');
+         END;
+
+       5:BEGIN
+         writeln('AGUA!!');
+         END;
+  END;
   turno_jugador:= turno_jugador + 1;
-  writeln(letrero_aviso);
   delay(2000);
   END
+
+
+
  ELSE
   BEGIN
   textcolor(lightgreen);
   writeln('===============================================');
-  writeln('JUGADOR 1: ',jugador_2);
+  writeln('JUGADOR 2: ',jugador_2);
   writeln('===============================================');
   writeln('TU CANTIDAD DE BARCOS: ',total_barcos_jugador_2);
   writeln('===============================================');
@@ -501,9 +578,81 @@ VAR
   columna:= valida_columna;
   writeln();
   writeln('COORDENADAS PREPARADAS PARA EL ATAQUE');
-  writeln();
-  letrero_aviso:= localiza_objetivo_2(fila,columna,barcos_destruidos_por_el_jugador_2,total_barcos_jugador_2,vida_acorazado_jugador_2,vida_crucero_jugador_2,vida_destructor_jugador_2);
-  writeln(letrero_aviso);
+  objetivo:= tab_1[fila,columna];
+  IF objetivo = 'A' THEN
+   opcion:= 1
+  ELSE IF objetivo = 'C' THEN
+   opcion:= 2
+  ELSE IF objetivo = 'D' THEN
+   opcion:= 3
+  ELSE IF objetivo = 'S' THEN
+   opcion:= 4
+  ELSE IF objetivo = '' THEN
+   opcion:= 5;
+  CASE opcion OF
+
+      1:BEGIN
+        IF vida_acorazado_jugador_1 >= 2 THEN
+         BEGIN
+         vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
+         tab_1[fila,columna]:= '';
+         writeln('ACORAZADO DANIADO!!!');
+         END
+        ELSE IF vida_acorazado_jugador_1 = 1 THEN
+         BEGIN
+         vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
+         tab_1[fila,columna]:= '';
+         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+         total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+         writeln('ACORAZADO HUNDIDO!!!');
+         END;
+        END;
+
+      2:BEGIN
+        IF vida_crucero_jugador_1 >= 2 THEN
+         BEGIN
+         vida_crucero_jugador_1:= vida_crucero_jugador_1 - 1;
+         tab_1[fila,columna]:= '';
+         writeln('CRUCERO DANIADO!!!');
+         END
+        ELSE
+         BEGIN
+         tab_1[fila,columna]:= '';
+         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+         vida_crucero_jugador_1:= 3;
+         total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+         writeln('CRUCERO HUNDIDO');
+         END;
+        END;
+
+       3:BEGIN
+         IF vida_destructor_jugador_1 >= 2 THEN
+          BEGIN
+          vida_destructor_jugador_1:= vida_destructor_jugador_1 - 1;
+          tab_1[fila,columna]:= '';
+          writeln('DESTRUCTOR DANIADO!!');
+          END
+         ELSE
+          BEGIN
+          tab_1[fila,columna]:= '';
+          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+          vida_destructor_jugador_1:= 2;
+          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+          writeln('DESTRUCTOR HUNDIDO!!!');
+          END;
+         END;
+
+       4:BEGIN
+          tab_1[fila,columna]:= '';
+          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+          writeln('SUBMARINO HUNDIDO!!!');
+         END;
+
+       5:BEGIN
+         writeln('AGUA!!');
+         END;
+  END;
   turno_jugador:= 0;
   delay(2000);
   END;
