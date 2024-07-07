@@ -45,6 +45,7 @@ VAR
  readln(pos);
  IF (pos < 1) OR (pos > 10) THEN
   BEGIN
+  textcolor(lightred);
   writeln();
   writeln('=====================================================');
   writeln('X Numero de fila fuera de rango. Ingrese nuevamente X');
@@ -64,6 +65,7 @@ VAR
  readln(pos);
  IF (pos < 1) OR (pos > 10) THEN
   BEGIN
+  textcolor(lightred);
   writeln();
   writeln('========================================================');
   writeln('X Numero de columna fuera de rango. Ingrese nuevamente X');
@@ -93,16 +95,19 @@ VAR
  opcion: string;
  eje_x,eje_y,columna,fila,f,j,x:integer;
 BEGIN
+ textcolor(brown);
  writeln();
  writeln('COLOQUE SUS BARCOS EN POSICION ');
  writeln('-------------------------------');
  writeln();
+ textcolor(green);
  writeln('COLOQUE EL ACORAZADO: ');
  writeln();
  write('De que forma desea colocarlo[v/h]?: ');
  readln(opcion);
  IF opcion = 'h' THEN
  BEGIN
+  writeln();
   writeln();
   eje_x:= valida_fila;
   writeln('Ingrese las columnas de forma consecutiva: ');
@@ -113,6 +118,7 @@ BEGIN
    eje_y:= columna;
    tab[eje_x,eje_y]:= 'A';
   END;
+  textcolor(green);
   writeln();
   writeln();
   writeln('ACORAZADO LISTO!');
@@ -148,6 +154,7 @@ BEGIN
   IF opcion = 'h' THEN
   BEGIN
    eje_x:= valida_fila;
+   writeln();
    writeln();
    writeln('Ingrese las columnas de forma consecutiva: ');
    eje_y:= 0;
@@ -250,6 +257,7 @@ BEGIN
   writeln();
   IF i = 1 THEN
   BEGIN
+   textcolor(cyan);
    write('>>> Ingrese su nombre jugador nro 1: ');
    readln(jugador_1);
    colocar_barcos(tab_1);
@@ -259,6 +267,7 @@ BEGIN
   END
   ELSE
   BEGIN
+   textcolor(cyan);
    write('>>> Ingrese su nombre jugador nro 2: ');
    readln(jugador_2);
    colocar_barcos(tab_2);
@@ -377,7 +386,11 @@ VAR
          BEGIN
          vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
          tab_2[fila,columna]:= '';
-          writeln('ACORAZADO DANIADO!!!');
+         textcolor(lightred);
+         writeln();
+         writeln('====================');
+         writeln('ACORAZADO DANIADO!!!');
+         writeln('====================');
          END
         ELSE IF vida_acorazado_jugador_2 = 1 THEN
          BEGIN
@@ -385,7 +398,11 @@ VAR
           tab_2[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          textcolor(lightgreen);
+          writeln();
+          writeln('====================');
           writeln('ACORAZADO HUNDIDO!!!');
+          writeln('====================');
          END;
         END;
 
@@ -394,7 +411,11 @@ VAR
          BEGIN
          vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
          tab_2[fila,columna]:= '';
+         textcolor(lightred);
+         writeln();
+         writeln('=================');
          writeln('CRUCERO DANIADO!!');
+         writeln('=================');
          END
         ELSE IF vida_acorazado_jugador_2 = 1 THEN
          BEGIN
@@ -402,7 +423,11 @@ VAR
          tab_2[fila,columna]:= '';
          vida_crucero_jugador_2:= 3;
          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+         textcolor(lightgreen);
+         writeln();
+         writeln('==================');
          writeln('CRUCERO HUNDIDO!!!');
+         writeln('==================');
          END;
         END;
 
@@ -411,7 +436,11 @@ VAR
           BEGIN
           vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
           tab_2[fila,columna]:= '';
+          textcolor(lightred);
+          writeln();
+          writeln('====================');
           writeln('DESTRUCTOR DANIADO!!');
+          writeln('====================');
           END
          ELSE IF vida_destructor_jugador_2 = 1 THEN
           BEGIN
@@ -419,7 +448,11 @@ VAR
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           vida_destructor_jugador_2:= 2;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          textcolor(lightgreen);
+          writeln();
+          writeln('=====================');
           writeln('DESTRUCTOR HUNDIDO!!!');
+          writeln('=====================');
           END;
          END;
 
@@ -427,11 +460,17 @@ VAR
           tab_2[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          textcolor(lightgreen);
+          writeln('====================');
           writeln('SUBMARINO HUNDIDO!!!');
+          writeln('===================');
          END;
 
        5:BEGIN
+         textcolor(lightcyan);
+         writeln('======');
          writeln('AGUA!!');
+         writeln('======');
          END;
   END;
   turno_jugador:= turno_jugador + 1;
@@ -479,7 +518,11 @@ VAR
          BEGIN
          vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
          tab_1[fila,columna]:= '';
+         textcolor(lightred);
+         writeln();
+         writeln('====================');
          writeln('ACORAZADO DANIADO!!!');
+         writeln('====================');
          END
         ELSE IF vida_acorazado_jugador_1 = 1 THEN
          BEGIN
@@ -487,7 +530,11 @@ VAR
          tab_1[fila,columna]:= '';
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+         textcolor(lightgreen);
+         writeln();
+         writeln('====================');
          writeln('ACORAZADO HUNDIDO!!!');
+         writeln('====================');
          END;
         END;
 
@@ -496,7 +543,11 @@ VAR
          BEGIN
          vida_crucero_jugador_1:= vida_crucero_jugador_1 - 1;
          tab_1[fila,columna]:= '';
-         writeln('CRUCERO DANIADO!!!');
+         textcolor(lightred);
+         writeln();
+         writeln('=================');
+         writeln('CRUCERO DANIADO!!');
+         writeln('=================');
          END
         ELSE
          BEGIN
@@ -504,7 +555,11 @@ VAR
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
          vida_crucero_jugador_1:= 3;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-         writeln('CRUCERO HUNDIDO');
+         textcolor(lightgreen);
+         writeln();
+         writeln('==================');
+         writeln('CRUCERO HUNDIDO!!!');
+         writeln('==================');
          END;
         END;
 
@@ -513,7 +568,11 @@ VAR
           BEGIN
           vida_destructor_jugador_1:= vida_destructor_jugador_1 - 1;
           tab_1[fila,columna]:= '';
+          textcolor(lightred);
+          writeln();
+          writeln('====================');
           writeln('DESTRUCTOR DANIADO!!');
+          writeln('====================');
           END
          ELSE
           BEGIN
@@ -521,7 +580,11 @@ VAR
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           vida_destructor_jugador_1:= 2;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+          textcolor(lightgreen);
+          writeln();
+          writeln('=====================');
           writeln('DESTRUCTOR HUNDIDO!!!');
+          writeln('=====================');
           END;
          END;
 
@@ -529,11 +592,17 @@ VAR
           tab_1[fila,columna]:= '';
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+          textcolor(lightgreen);
+          writeln('====================');
           writeln('SUBMARINO HUNDIDO!!!');
+          writeln('===================');
          END;
 
        5:BEGIN
+         textcolor(lightcyan);
+         writeln('======');
          writeln('AGUA!!');
+         writeln('======');
          END;
   END;
   turno_jugador:= 0;
