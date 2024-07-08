@@ -913,21 +913,51 @@ VAR
   delay(2000);
  END;
 
+PROCEDURE cartel_menu;
+ BEGIN
+ textcolor(cyan);
+ gotoxy(whereX, whereY + 20);
+ gotoxy(whereX + 65, whereY);
+ writeln('==========================');
+ gotoxy(whereX + 65, whereY);
+ writeln('  \  |  ____|   \  | |   |');
+ gotoxy(whereX + 65, whereY);
+ writeln(' |\/ |  __|      \ | |   |');
+ gotoxy(whereX + 65, whereY);
+ writeln(' |   |  |      |\  | |   |');
+ gotoxy(whereX + 65, whereY);
+ writeln('_|  _| _____| _| \_| \___/');
+ gotoxy(whereX + 65, whereY);
+ writeln('==========================');
+ END;
+
 PROCEDURE partida_estandar;
 VAR
  opcion: integer;
  BEGIN
  REPEAT
  clrscr;
+ cartel_menu;
+ textcolor(white);
+ gotoxy(whereX, whereY + 2);
+ gotoxy(whereX + 50, whereY);
  writeln('-----------------------------------------------------------');
+ gotoxy(whereX + 50, whereY);
  writeln('|1| - Cargue nombre de Jugadores y coloque sus barcos - |1|');
+ gotoxy(whereX + 50, whereY);
  writeln('-----------------------------------------------------------');
+ gotoxy(whereX + 50, whereY);
  writeln('|2| -               Empezar partida                   - |2|');
+ gotoxy(whereX + 50, whereY);
  writeln('-----------------------------------------------------------');
+ gotoxy(whereX + 50, whereY);
  writeln('|3| -          Regresar al menu principal             - |3|');
+ gotoxy(whereX + 50, whereY);
  writeln('-----------------------------------------------------------');
  writeln();
+ gotoxy(whereX + 50, whereY);
  writeln('===========================================');
+ gotoxy(whereX + 50, whereY);
  write('Seleccione opcion: ');
  readln(opcion);
  CASE opcion OF
