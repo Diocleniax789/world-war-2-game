@@ -86,7 +86,7 @@ var
   FOR j:= 1 TO 10 DO
    BEGIN
    textcolor(lightcyan);
-   write('  ',tab[f,j]);
+   write(' ',tab[f,j],' ');
   END;
  END;
 END;
@@ -120,7 +120,7 @@ BEGIN
    eje_y:= columna;
    tab[eje_x,eje_y]:= 'A';
   END;
-  textcolor(green);
+  textcolor(lightgreen);
   writeln();
   writeln();
   writeln('ACORAZADO LISTO!');
@@ -145,7 +145,7 @@ BEGIN
   writeln('ACORAZADO LISTO!');
   writeln();
  END;
- textcolor(blue);
+ textcolor(green);
  writeln();
  writeln('-------------------------------------------------');
  writeln();
@@ -153,7 +153,7 @@ BEGIN
  writeln();
  FOR x:= 1 TO 2 DO
  BEGIN
-  textcolor(blue);
+  textcolor(green);
   writeln();
   writeln('Crucero ',x);
   writeln();
@@ -173,13 +173,14 @@ BEGIN
     eje_y:= columna;
     tab[eje_x,eje_y]:= 'C';
    END;
-   textcolor(lightcyan);
+   textcolor(lightgreen);
    writeln();
    writeln('CRUCERO LISTO!');
    writeln();
   END
   ELSE
   BEGIN
+   writeln();
    eje_y:= valida_columna;
    writeln();
    writeln('Ingrese las filas de forma consecutiva: ');
@@ -191,13 +192,13 @@ BEGIN
     eje_x:= fila;
     tab[eje_x,eje_y]:= 'C';
    END;
-   textcolor(lightcyan);
+   textcolor(lightgreen);
    writeln();
    writeln('CRUCERO LISTO!');
    writeln();
   END;
  END;
- textcolor(blue);
+ textcolor(green);
  writeln();
  writeln('--------------------------------------------');
  writeln();
@@ -205,12 +206,15 @@ BEGIN
  writeln();
  FOR j:= 1 TO 3 DO
  BEGIN
+  textcolor(green);
+  writeln();
   writeln('Destructor ',j);
   writeln();
   write('>>> De que forma desea colocarlo [vertical/horizontal]?: ');
   readln(opcion);
   IF opcion = 'horizontal' THEN
   BEGIN
+   writeln();
    eje_x:= valida_fila;
    writeln();
    writeln('Ingrese las columnas de forma consecutiva: ');
@@ -222,6 +226,7 @@ BEGIN
     eje_y:= columna;
     tab[eje_x,eje_y]:= 'D';
    END;
+   textcolor(lightgreen);
    writeln();
    writeln('DESTRUCTOR LISTO!');
    writeln();
@@ -235,6 +240,7 @@ BEGIN
    eje_x:= 0;
    FOR f:= 1 TO 2 DO
    BEGIN
+    writeln();
     fila:= valida_fila;
     eje_x:= fila;
     tab[eje_x,eje_y]:= 'D';
@@ -253,10 +259,12 @@ BEGIN
  writeln();
  FOR j:= 1 TO 4 DO
  BEGIN
+  textcolor(green);
   writeln();
   writeln('Submarino ',j);
   writeln();
   eje_x:= valida_fila;
+  writeln();
   eje_y:= valida_columna;
   tab[eje_x,eje_y]:= 'S';
   textcolor(lightgreen);
@@ -618,13 +626,13 @@ VAR
  f: boolean;
  i,j: integer;
  BEGIN
- f:= false;
+ f:= true;
  FOR i:= 1 TO 10 DO
   BEGIN
   FOR j:= 1 TO 10 DO
    BEGIN
-   IF tab_1[i,j] = '' THEN
-    f:= true;
+   IF tab_1[i,j] <> '' THEN
+    f:= false;
    END;
   END;
  IF f = true THEN
