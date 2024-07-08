@@ -105,7 +105,7 @@ BEGIN
  textcolor(green);
  writeln('COLOQUE EL ACORAZADO: ');
  writeln();
- write('De que forma desea colocarlo[v/h]?: ');
+ write('De que forma desea colocarlo[vertical/horizontal]?: ');
  readln(opcion);
  IF opcion = 'h' THEN
  BEGIN
@@ -151,7 +151,7 @@ BEGIN
   writeln();
   writeln('Crucero ',x);
   writeln();
-  write('>>> De que forma desea colocarlo [v/h]?: ');
+  write('>>> De que forma desea colocarlo [vertical/horizontal]?: ');
   readln(opcion);
   IF opcion = 'h' THEN
   BEGIN
@@ -196,7 +196,7 @@ BEGIN
  BEGIN
   writeln('Destructor ',j);
   writeln();
-  write('>>> De que forma desea colocarlo [v/h]?: ');
+  write('>>> De que forma desea colocarlo [vertical/horizontal]?: ');
   readln(opcion);
   IF opcion = 'h' THEN
   BEGIN
@@ -257,6 +257,9 @@ BEGIN
  FOR i:= 1 TO 2 DO
  BEGIN
   clrscr;
+  writeln('====================================================================');
+  writeln('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||');
+  writeln('====================================================================');
   writeln('Jugador ',i);
   writeln();
   IF i = 1 THEN
@@ -589,80 +592,111 @@ PROCEDURE cartel_agua;
   writeln('==========================================');
  END;
 
+FUNCTION verifica_estado_tablero(): boolean;
+VAR
+ f: boolean;
+ i,j: integer;
+ BEGIN
+ f:= false;
+ FOR i:= 1 TO 10 DO
+  BEGIN
+  FOR j:= 1 TO 10 DO
+   BEGIN
+   IF tab_1[i,j] = '' THEN
+    f:= true;
+   END;
+  END;
+ IF f = true THEN
+  verifica_estado_tablero:= true
+ ELSE
+  verifica_estado_tablero:= false;
+ END;
+
 PROCEDURE empezar_partida;
 VAR
  objetivo: string;
  turno_jugador,fila,columna,opcion: integer;
  BEGIN
- mostrar_introduccion_instrucciones_de_juego;
- turno_jugador:= 0;
- total_barcos_jugador_1:= 10;
- total_barcos_jugador_2:= 10;
- barcos_destruidos_por_el_jugador_1:= 0;
- barcos_destruidos_por_el_jugador_2:= 0;
- vida_acorazado_jugador_1:= 4;
- vida_acorazado_jugador_2:= 4;
- vida_crucero_jugador_1:= 3;
- vida_crucero_jugador_2:= 3;
- vida_destructor_jugador_2:= 2;
- vida_destructor_jugador_1:= 2;
- REPEAT
- clrscr;
- turno_jugador:= turno_jugador + 1;
- IF turno_jugador = 1 THEN
+ IF verifica_estado_tablero() = true THEN
   BEGIN
-  cartel_turno_jugador_1;
-  textcolor(white);
-  writeln('GRAN BRETANIA');
+  textcolor(lightred);
   writeln();
-  bandera_inglesa;
-  writeln();
-  textcolor(lightgreen);
-  writeln('===============================================');
-  writeln('JUGADOR 1: ',jugador_1);
-  writeln('===============================================');
-  writeln('TU CANTIDAD DE BARCOS: ',total_barcos_jugador_1);
-  writeln('===============================================');
-  writeln('CANTIDAD DE BARCOS QUE HUNDISTE: ',barcos_destruidos_por_el_jugador_1);
-  writeln('===============================================');
-  writeln();
-  writeln('===============================================');
-  writeln('|/////////////////////////////////////////////|');
-  writeln('===============================================');
-  writeln('TUS BARCOS EN POSICION DE ATAQUE');
-  writeln('===============================================');
-  writeln('|/////////////////////////////////////////////|');
-  writeln('===============================================');
-  writeln();
-  mostrar_tabla(tab_1);
-  writeln();
-  writeln();
-  textcolor(white);
-  writeln();
-  writeln('-------------------------------------------------');
-  writeln('INGRESE LAS COORDENADAS ESPECIFICAS');
-  writeln();
-  fila:= valida_fila;
-  writeln();
-  columna:= valida_columna;
-  textcolor(lightcyan);
-  writeln();
-  writeln('========================================');
-  writeln('COORDENADAS PREPARADAS PARA EL ATAQUE!!!');
-  writeln('========================================');
-  writeln();
-  objetivo:= tab_2[fila,columna];
-  IF objetivo = 'A' THEN
-   opcion:= 1
-  ELSE IF objetivo = 'C' THEN
-   opcion:= 2
-  ELSE IF objetivo = 'D' THEN
-   opcion:= 3
-  ELSE IF objetivo = 'S' THEN
-   opcion:= 4
-  ELSE IF objetivo = '' THEN
-   opcion:= 5;
- CASE opcion OF
+  writeln('========================================================');
+  writeln('X AUN LOS TABLEROS NO ESTAN CARGADOS. PRIMERO CARGELOS X');
+  writeln('========================================================');
+  delay(2000);
+  END
+ ELSE
+  BEGIN
+  mostrar_introduccion_instrucciones_de_juego;
+  turno_jugador:= 0;
+  total_barcos_jugador_1:= 10;
+  total_barcos_jugador_2:= 10;
+  barcos_destruidos_por_el_jugador_1:= 0;
+  barcos_destruidos_por_el_jugador_2:= 0;
+  vida_acorazado_jugador_1:= 4;
+  vida_acorazado_jugador_2:= 4;
+  vida_crucero_jugador_1:= 3;
+  vida_crucero_jugador_2:= 3;
+  vida_destructor_jugador_2:= 2;
+  vida_destructor_jugador_1:= 2;
+  REPEAT
+  clrscr;
+  turno_jugador:= turno_jugador + 1;
+  IF turno_jugador = 1 THEN
+   BEGIN
+   cartel_turno_jugador_1;
+   textcolor(white);
+   writeln('GRAN BRETANIA');
+   writeln();
+   bandera_inglesa;
+   writeln();
+   textcolor(lightgreen);
+   writeln('===============================================');
+   writeln('JUGADOR 1: ',jugador_1);
+   writeln('===============================================');
+   writeln('TU CANTIDAD DE BARCOS: ',total_barcos_jugador_1);
+   writeln('===============================================');
+   writeln('CANTIDAD DE BARCOS QUE HUNDISTE: ',barcos_destruidos_por_el_jugador_1);
+   writeln('===============================================');
+   writeln();
+   writeln('===============================================');
+   writeln('|/////////////////////////////////////////////|');
+   writeln('===============================================');
+   writeln('TUS BARCOS EN POSICION DE ATAQUE');
+   writeln('===============================================');
+   writeln('|/////////////////////////////////////////////|');
+   writeln('===============================================');
+   writeln();
+   mostrar_tabla(tab_1);
+   writeln();
+   writeln();
+   textcolor(white);
+   writeln();
+   writeln('-------------------------------------------------');
+   writeln('INGRESE LAS COORDENADAS ESPECIFICAS');
+   writeln();
+   fila:= valida_fila;
+   writeln();
+   columna:= valida_columna;
+   textcolor(lightcyan);
+   writeln();
+   writeln('========================================');
+   writeln('COORDENADAS PREPARADAS PARA EL ATAQUE!!!');
+   writeln('========================================');
+   writeln();
+   objetivo:= tab_2[fila,columna];
+   IF objetivo = 'A' THEN
+    opcion:= 1
+   ELSE IF objetivo = 'C' THEN
+    opcion:= 2
+   ELSE IF objetivo = 'D' THEN
+    opcion:= 3
+   ELSE IF objetivo = 'S' THEN
+    opcion:= 4
+   ELSE IF objetivo = '' THEN
+    opcion:= 5;
+   CASE opcion OF
 
       1:BEGIN
         IF vida_acorazado_jugador_2 >= 2 THEN
@@ -911,6 +945,9 @@ VAR
   writeln('PARA PODER JUGAR NUEVAMENTE VUELVA A CARGAR LOS BARCOS EN LA PRIMERA OPCION DEL MENU!');
   writeln('=====================================================================================');
   delay(2000);
+  END;
+
+
  END;
 
 PROCEDURE cartel_menu;
@@ -931,7 +968,7 @@ PROCEDURE cartel_menu;
  writeln('==========================');
  END;
 
-PROCEDURE partida_estandar;
+PROCEDURE Comenzar_partida;
 VAR
  opcion: integer;
  BEGIN
@@ -1025,15 +1062,11 @@ VAR
    gotoxy(whereX + 65 ,whereY);
    writeln('---------------------------------');
    gotoxy(whereX + 65 ,whereY);
-   writeln('|1| -   Partida estandar    - |1|');
+   writeln('|1| -   Comenzar partida    - |1|');
    gotoxy(whereX + 65 ,whereY);
    writeln('---------------------------------');
    gotoxy(whereX + 65 ,whereY);
-   writeln('|2| - Partida personalizada - |2|');
-   gotoxy(whereX + 65 ,whereY);
-   writeln('---------------------------------');
-   gotoxy(whereX + 65 ,whereY);
-   writeln('|3| -        Salir          - |3|');
+   writeln('|2| -        Salir          - |2|');
    gotoxy(whereX + 65 ,whereY);
    writeln('---------------------------------');
    writeln();
@@ -1045,14 +1078,10 @@ VAR
    CASE opcion OF
         1:BEGIN
           clrscr;
-          partida_estandar;
+          Comenzar_partida;
           END;
-      {  2:BEGIN
-          clrscr;
-          partida_personalizada;
-          END;     }
    END;
-   UNTIL (opcion = 3)
+   UNTIL (opcion = 2)
    END;
 
 PROCEDURE cartel_inicial_start;
