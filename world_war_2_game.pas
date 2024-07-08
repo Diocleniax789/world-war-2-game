@@ -107,7 +107,7 @@ BEGIN
  writeln();
  write('De que forma desea colocarlo[vertical/horizontal]?: ');
  readln(opcion);
- IF opcion = 'h' THEN
+ IF opcion = 'horizontal' THEN
  BEGIN
   writeln();
   writeln();
@@ -128,19 +128,24 @@ BEGIN
  END
  ELSE
  BEGIN
+  writeln();
   eje_y:= valida_columna;
+  writeln();
   writeln('Ingrese las filas de forma consecutiva: ');
   eje_x:= 0;
   FOR f:= 1 TO 4 DO
   BEGIN
+   writeln();
    fila:= valida_fila;
    eje_x:= fila;
    tab[eje_x,eje_y]:= 'A';
   END;
+  textcolor(lightgreen);
   writeln();
   writeln('ACORAZADO LISTO!');
   writeln();
  END;
+ textcolor(blue);
  writeln();
  writeln('-------------------------------------------------');
  writeln();
@@ -148,24 +153,27 @@ BEGIN
  writeln();
  FOR x:= 1 TO 2 DO
  BEGIN
+  textcolor(blue);
   writeln();
   writeln('Crucero ',x);
   writeln();
   write('>>> De que forma desea colocarlo [vertical/horizontal]?: ');
   readln(opcion);
-  IF opcion = 'h' THEN
+  IF opcion = 'horizontal' THEN
   BEGIN
-   eje_x:= valida_fila;
    writeln();
+   eje_x:= valida_fila;
    writeln();
    writeln('Ingrese las columnas de forma consecutiva: ');
    eje_y:= 0;
    FOR f:= 1 TO 3 DO
    BEGIN
+    writeln();
     columna:= valida_columna;
     eje_y:= columna;
     tab[eje_x,eje_y]:= 'C';
    END;
+   textcolor(lightcyan);
    writeln();
    writeln('CRUCERO LISTO!');
    writeln();
@@ -178,15 +186,18 @@ BEGIN
    eje_x:= 0;
    FOR f:= 1 TO 3 DO
    BEGIN
+    writeln();
     fila:= valida_fila;
     eje_x:= fila;
     tab[eje_x,eje_y]:= 'C';
    END;
+   textcolor(lightcyan);
    writeln();
    writeln('CRUCERO LISTO!');
    writeln();
   END;
  END;
+ textcolor(blue);
  writeln();
  writeln('--------------------------------------------');
  writeln();
@@ -198,7 +209,7 @@ BEGIN
   writeln();
   write('>>> De que forma desea colocarlo [vertical/horizontal]?: ');
   readln(opcion);
-  IF opcion = 'h' THEN
+  IF opcion = 'horizontal' THEN
   BEGIN
    eje_x:= valida_fila;
    writeln();
@@ -206,6 +217,7 @@ BEGIN
    eje_y:= 0;
    FOR f:= 1 TO 2 DO
    BEGIN
+    writeln();
     columna:= valida_columna;
     eje_y:= columna;
     tab[eje_x,eje_y]:= 'D';
@@ -216,7 +228,9 @@ BEGIN
   END
   ELSE
   BEGIN
+   writeln();
    eje_y:= valida_columna;
+   writeln();
    writeln('Ingrese las filas de forma consecutiva: ');
    eje_x:= 0;
    FOR f:= 1 TO 2 DO
@@ -225,11 +239,13 @@ BEGIN
     eje_x:= fila;
     tab[eje_x,eje_y]:= 'D';
    END;
+   textcolor(lightgreen);
    writeln();
    writeln('DESTRUCTOR LISTO!');
    writeln();
   END;
  END;
+ textcolor(green);
  writeln();
  writeln('--------------------------------------------');
  writeln();
@@ -237,15 +253,18 @@ BEGIN
  writeln();
  FOR j:= 1 TO 4 DO
  BEGIN
+  writeln();
   writeln('Submarino ',j);
   writeln();
   eje_x:= valida_fila;
   eje_y:= valida_columna;
   tab[eje_x,eje_y]:= 'S';
+  textcolor(lightgreen);
   writeln();
   writeln('SUBMARINO LISTO!');
   writeln();
  END;
+ textcolor(lightgreen);
  writeln();
  writeln('*** TODOS LOS BARCOS EN POSICION ***');
 END;
@@ -257,9 +276,11 @@ BEGIN
  FOR i:= 1 TO 2 DO
  BEGIN
   clrscr;
+  textcolor(brown);
   writeln('====================================================================');
   writeln('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||');
   writeln('====================================================================');
+  textcolor(lightgreen);
   writeln('Jugador ',i);
   writeln();
   IF i = 1 THEN
