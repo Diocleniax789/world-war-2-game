@@ -18,7 +18,7 @@ VAR
   BEGIN
   FOR j:= 1 TO 10 DO
    BEGIN
-   tab_1[f,j]:= '';
+   tab_1[f,j]:= '  ';
    END;
   END;
  END;
@@ -31,7 +31,7 @@ VAR
   BEGIN
   FOR j:= 1 TO 10 DO
    BEGIN
-   tab_2[f,j]:= '';
+   tab_2[f,j]:= '  ';
    END;
   END;
  END;
@@ -78,18 +78,17 @@ VAR
 
 PROCEDURE mostrar_tabla(tab: tablero);
 var
- f,j: integer;
+ f: integer;
  BEGIN
+ writeln('========================================================');
+ writeln();
  FOR f:= 1 TO 10 DO
   BEGIN
-  writeln();
-  FOR j:= 1 TO 10 DO
-   BEGIN
    textcolor(lightcyan);
-   write(' ',tab[f,j],' ');
+   writeln(tab[f,1]:2,' || ',tab[f,2]:2,' || ',tab[f,3]:2,' || ',tab[f,4]:2,' || ',tab[f,5]:2,' || ',tab[f,6]:2,' || ',tab[f,7]:2,' || ',tab[f,8]:2,' || ',tab[f,9]:2,' || ',tab[f,10]:2);
+   writeln('========================================================');
   END;
  END;
-END;
 
 PROCEDURE colocar_barcos(var tab: tablero);
 VAR
@@ -631,7 +630,7 @@ VAR
   BEGIN
   FOR j:= 1 TO 10 DO
    BEGIN
-   IF tab_1[i,j] <> '' THEN
+   IF tab_1[i,j] <> '  ' THEN
     f:= false;
    END;
   END;
@@ -723,7 +722,7 @@ VAR
     opcion:= 3
    ELSE IF objetivo = 'S' THEN
     opcion:= 4
-   ELSE IF objetivo = '' THEN
+   ELSE IF objetivo = '  ' THEN
     opcion:= 5;
    CASE opcion OF
 
@@ -731,7 +730,7 @@ VAR
         IF vida_acorazado_jugador_2 >= 2 THEN
          BEGIN
          vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
-         tab_2[fila,columna]:= '';
+         tab_2[fila,columna]:= '  ';
          textcolor(yellow);
          writeln();
          cartel_acorazado_daniado;
@@ -739,7 +738,7 @@ VAR
         ELSE IF vida_acorazado_jugador_2 = 1 THEN
          BEGIN
           vida_acorazado_jugador_2:= vida_acorazado_jugador_2 - 1;
-          tab_2[fila,columna]:= '';
+          tab_2[fila,columna]:= '  ';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightred);
@@ -752,14 +751,14 @@ VAR
         IF vida_crucero_jugador_2 >= 2 THEN
          BEGIN
          vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
-         tab_2[fila,columna]:= '';
+         tab_2[fila,columna]:= '  ';
          textcolor(yellow);
          writeln();
          cartel_crucero_daniado;
          END
         ELSE IF vida_acorazado_jugador_2 = 1 THEN
          BEGIN
-         tab_2[fila,columna]:= '';
+         tab_2[fila,columna]:= '  ';
          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
          textcolor(lightred);
@@ -773,14 +772,14 @@ VAR
          IF vida_destructor_jugador_2 >= 2 THEN
           BEGIN
           vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
-          tab_2[fila,columna]:= '';
+          tab_2[fila,columna]:= '  ';
           textcolor(yellow);
           writeln();
           cartel_destructor_daniado;
           END
          ELSE IF vida_destructor_jugador_2 = 1 THEN
           BEGIN
-          tab_2[fila,columna]:= '';
+          tab_2[fila,columna]:= '  ';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightred);
@@ -791,7 +790,7 @@ VAR
          END;
 
        4:BEGIN
-          tab_2[fila,columna]:= '';
+          tab_2[fila,columna]:= '  ';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
           total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
           textcolor(lightred);
@@ -859,7 +858,7 @@ VAR
    opcion:= 3
   ELSE IF objetivo = 'S' THEN
    opcion:= 4
-  ELSE IF objetivo = '' THEN
+  ELSE IF objetivo = '  ' THEN
    opcion:= 5;
   CASE opcion OF
 
@@ -867,7 +866,7 @@ VAR
         IF vida_acorazado_jugador_1 >= 2 THEN
          BEGIN
          vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
-         tab_1[fila,columna]:= '';
+         tab_1[fila,columna]:= '  ';
          textcolor(yellow);
          writeln();
          cartel_acorazado_daniado;
@@ -875,7 +874,7 @@ VAR
         ELSE IF vida_acorazado_jugador_1 = 1 THEN
          BEGIN
          vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
-         tab_1[fila,columna]:= '';
+         tab_1[fila,columna]:= '  ';
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
          textcolor(lightred);
@@ -888,14 +887,14 @@ VAR
         IF vida_crucero_jugador_1 >= 2 THEN
          BEGIN
          vida_crucero_jugador_1:= vida_crucero_jugador_1 - 1;
-         tab_1[fila,columna]:= '';
+         tab_1[fila,columna]:= '  ';
          textcolor(yellow);
          writeln();
          cartel_crucero_daniado;
          END
         ELSE IF  vida_crucero_jugador_1 = 1 THEN
          BEGIN
-         tab_1[fila,columna]:= '';
+         tab_1[fila,columna]:= '  ';
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
          vida_crucero_jugador_1:= 3;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
@@ -909,14 +908,14 @@ VAR
          IF vida_destructor_jugador_1 >= 2 THEN
           BEGIN
           vida_destructor_jugador_1:= vida_destructor_jugador_1 - 1;
-          tab_1[fila,columna]:= '';
+          tab_1[fila,columna]:= '  ';
           textcolor(yellow);
           writeln();
           cartel_destructor_daniado;
           END
          ELSE IF vida_destructor_jugador_1 = 1 THEN
           BEGIN
-          tab_1[fila,columna]:= '';
+          tab_1[fila,columna]:= '  ';
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           vida_destructor_jugador_1:= 2;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
@@ -927,7 +926,7 @@ VAR
          END;
 
        4:BEGIN
-          tab_1[fila,columna]:= '';
+          tab_1[fila,columna]:= '  ';
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
           textcolor(lightred);
