@@ -239,6 +239,11 @@ BEGIN
   writeln('ACORAZADO LISTO!');
   writeln();
  END;
+
+
+
+
+
  textcolor(green);
  writeln();
  writeln('-------------------------------------------------');
@@ -251,9 +256,12 @@ BEGIN
   writeln();
   writeln('Crucero ',x);
   writeln();
+
+  IF x = 1 THEN
+   BEGIN
   opcion:= valida_opcion;
   IF opcion = 'horizontal' THEN
-  BEGIN
+   BEGIN
    writeln();
    eje_x:= valida_fila;
    writeln();
@@ -264,7 +272,7 @@ BEGIN
     writeln();
     columna:= valida_columna;
     eje_y:= columna;
-    tab[eje_x,eje_y]:= 'C';
+    tab[eje_x,eje_y]:= 'C1';
    END;
    textcolor(lightgreen);
    writeln();
@@ -272,7 +280,7 @@ BEGIN
    writeln();
   END
   ELSE
-  BEGIN
+   BEGIN
    writeln();
    eje_y:= valida_columna;
    writeln();
@@ -283,14 +291,64 @@ BEGIN
     writeln();
     fila:= valida_fila;
     eje_x:= fila;
-    tab[eje_x,eje_y]:= 'C';
+    tab[eje_x,eje_y]:= 'C1';
    END;
    textcolor(lightgreen);
    writeln();
    writeln('CRUCERO LISTO!');
    writeln();
-  END;
+   END;
+   END
+  ELSE
+   BEGIN
+     opcion:= valida_opcion;
+  IF opcion = 'horizontal' THEN
+   BEGIN
+   writeln();
+   eje_x:= valida_fila;
+   writeln();
+   writeln('Ingrese las columnas de forma consecutiva: ');
+   eje_y:= 0;
+   FOR f:= 1 TO 3 DO
+   BEGIN
+    writeln();
+    columna:= valida_columna;
+    eje_y:= columna;
+    tab[eje_x,eje_y]:= 'C2';
+   END;
+   textcolor(lightgreen);
+   writeln();
+   writeln('CRUCERO LISTO!');
+   writeln();
+  END
+ ELSE
+   BEGIN
+   writeln();
+   eje_y:= valida_columna;
+   writeln();
+   writeln('Ingrese las filas de forma consecutiva: ');
+   eje_x:= 0;
+   FOR f:= 1 TO 3 DO
+   BEGIN
+    writeln();
+    fila:= valida_fila;
+    eje_x:= fila;
+    tab[eje_x,eje_y]:= 'C2';
+   END;
+   textcolor(lightgreen);
+   writeln();
+   writeln('CRUCERO LISTO!');
+   writeln();
+   END;
+   END;
  END;
+
+
+
+
+
+
+
  textcolor(green);
  writeln();
  writeln('--------------------------------------------');
