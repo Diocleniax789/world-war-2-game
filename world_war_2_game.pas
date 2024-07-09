@@ -12,8 +12,9 @@ TYPE
 VAR
    tab_1,tab_2: tablero;
    jugador_1,jugador_2: string;
-   vida_acorazado_jugador_1,vida_crucero_jugador_1,vida_destructor_jugador_1,vida_acorazado_jugador_2,barcos_destruidos_por_el_jugador_1,barcos_destruidos_por_el_jugador_2,vida_crucero_jugador_2,
-   vida_destructor_jugador_2,total_barcos_jugador_1,total_barcos_jugador_2: integer;
+   vida_acorazado_jugador_1,vida_acorazado_jugador_2,vida_crucero_1__jugador_1,vida_crucero_2__jugador_1,vida_crucero_1_jugador_2,vida_crucero_2_jugador_2,
+   vida_destructor_1_jugador_1,vida_destructor_2_jugador_1,vida_destructor_3_jugador_1,vida_destructor_1_jugador_2,vida_destructor_2_jugador_2,
+   vida_destructor_3_jugador_2 ,barcos_destruidos_por_el_jugador_1,barcos_destruidos_por_el_jugador_2,total_barcos_jugador_1,total_barcos_jugador_2: integer;
 
 PROCEDURE inicializa_tablero_1;
 VAR
@@ -242,8 +243,6 @@ BEGIN
 
 
 
-
-
  textcolor(green);
  writeln();
  writeln('-------------------------------------------------');
@@ -256,7 +255,6 @@ BEGIN
   writeln();
   writeln('Crucero ',x);
   writeln();
-
   IF x = 1 THEN
    BEGIN
   opcion:= valida_opcion;
@@ -344,11 +342,6 @@ BEGIN
  END;
 
 
-
-
-
-
-
  textcolor(green);
  writeln();
  writeln('--------------------------------------------');
@@ -361,25 +354,30 @@ BEGIN
   writeln();
   writeln('Destructor ',j);
   writeln();
+
+
+  IF j = 1 THEN
+
+  BEGIN
   opcion:= valida_opcion;
   IF opcion = 'horizontal' THEN
-  BEGIN
-   writeln();
-   eje_x:= valida_fila;
-   writeln();
-   writeln('Ingrese las columnas de forma consecutiva: ');
-   eje_y:= 0;
-   FOR f:= 1 TO 2 DO
-   BEGIN
+    BEGIN
     writeln();
-    columna:= valida_columna;
-    eje_y:= columna;
-    tab[eje_x,eje_y]:= 'D';
-   END;
-   textcolor(lightgreen);
-   writeln();
-   writeln('DESTRUCTOR LISTO!');
-   writeln();
+    eje_x:= valida_fila;
+    writeln();
+    writeln('Ingrese las columnas de forma consecutiva: ');
+    eje_y:= 0;
+    FOR f:= 1 TO 2 DO
+     BEGIN
+     writeln();
+     columna:= valida_columna;
+     eje_y:= columna;
+     tab[eje_x,eje_y]:= 'D1';
+     END;
+  textcolor(lightgreen);
+  writeln();
+  writeln('DESTRUCTOR LISTO!');
+  writeln();
   END
   ELSE
   BEGIN
@@ -393,14 +391,100 @@ BEGIN
     writeln();
     fila:= valida_fila;
     eje_x:= fila;
-    tab[eje_x,eje_y]:= 'D';
+    tab[eje_x,eje_y]:= '1';
    END;
    textcolor(lightgreen);
    writeln();
    writeln('DESTRUCTOR LISTO!');
    writeln();
   END;
+  END
+ ELSE IF j = 2 THEN
+  BEGIN
+  opcion:= valida_opcion;
+  IF opcion = 'horizontal' THEN
+    BEGIN
+    writeln();
+    eje_x:= valida_fila;
+    writeln();
+    writeln('Ingrese las columnas de forma consecutiva: ');
+    eje_y:= 0;
+    FOR f:= 1 TO 2 DO
+     BEGIN
+     writeln();
+     columna:= valida_columna;
+     eje_y:= columna;
+     tab[eje_x,eje_y]:= 'D2';
+     END;
+     textcolor(lightgreen);
+     writeln();
+     writeln('DESTRUCTOR LISTO!');
+     writeln();
+     END
+  ELSE
+  BEGIN
+     writeln();
+     eje_y:= valida_columna;
+     writeln();
+     writeln('Ingrese las filas de forma consecutiva: ');
+     eje_x:= 0;
+     FOR f:= 1 TO 2 DO
+      BEGIN
+      writeln();
+      fila:= valida_fila;
+      eje_x:= fila;
+      tab[eje_x,eje_y]:= 'D2';
+      END;
+     textcolor(lightgreen);
+     writeln();
+     writeln('DESTRUCTOR LISTO!');
+     writeln();
+  END;
+  END
+ ELSE
+  BEGIN
+  opcion:= valida_opcion;
+  IF opcion = 'horizontal' THEN
+    BEGIN
+    writeln();
+    eje_x:= valida_fila;
+    writeln();
+    writeln('Ingrese las columnas de forma consecutiva: ');
+    eje_y:= 0;
+    FOR f:= 1 TO 2 DO
+     BEGIN
+     writeln();
+     columna:= valida_columna;
+     eje_y:= columna;
+     tab[eje_x,eje_y]:= 'D3';
+     END;
+    END
+  ELSE
+  BEGIN
+   writeln();
+   eje_y:= valida_columna;
+   writeln();
+   writeln('Ingrese las filas de forma consecutiva: ');
+   eje_x:= 0;
+   FOR f:= 1 TO 2 DO
+   BEGIN
+    writeln();
+    fila:= valida_fila;
+    eje_x:= fila;
+    tab[eje_x,eje_y]:= 'D3';
+   END;
+   textcolor(lightgreen);
+   writeln();
+   writeln('DESTRUCTOR LISTO!');
+   writeln();
+  END;
+  END;
  END;
+
+
+
+
+
  textcolor(green);
  writeln();
  writeln('--------------------------------------------');
@@ -413,14 +497,53 @@ BEGIN
   writeln();
   writeln('Submarino ',j);
   writeln();
-  eje_x:= valida_fila;
-  writeln();
-  eje_y:= valida_columna;
-  tab[eje_x,eje_y]:= 'S';
-  textcolor(lightgreen);
-  writeln();
-  writeln('SUBMARINO LISTO!');
-  writeln();
+  IF  j = 1 THEN
+   BEGIN
+   eje_x:= valida_fila;
+   writeln();
+   eje_y:= valida_columna;
+   tab[eje_x,eje_y]:= 'S1';
+   textcolor(lightgreen);
+   writeln();
+   writeln('SUBMARINO LISTO!');
+   writeln();
+   END
+
+  ELSE IF j = 2 THEN
+   BEGIN
+   eje_x:= valida_fila;
+   writeln();
+   eje_y:= valida_columna;
+   tab[eje_x,eje_y]:= 'S2';
+   textcolor(lightgreen);
+   writeln();
+   writeln('SUBMARINO LISTO!');
+   writeln();
+   END
+
+  ELSE IF j = 3 THEN
+   BEGIN
+   eje_x:= valida_fila;
+   writeln();
+   eje_y:= valida_columna;
+   tab[eje_x,eje_y]:= 'S3';
+   textcolor(lightgreen);
+   writeln();
+   writeln('SUBMARINO LISTO!');
+   writeln();
+   END
+
+  ELSE
+   BEGIN
+   eje_x:= valida_fila;
+   writeln();
+   eje_y:= valida_columna;
+   tab[eje_x,eje_y]:= 'S4';
+   textcolor(lightgreen);
+   writeln();
+   writeln('SUBMARINO LISTO!');
+   writeln();
+   END;
  END;
  textcolor(lightgreen);
  writeln();
@@ -974,12 +1097,25 @@ VAR
   total_barcos_jugador_2:= 10;
   barcos_destruidos_por_el_jugador_1:= 0;
   barcos_destruidos_por_el_jugador_2:= 0;
+
   vida_acorazado_jugador_1:= 4;
   vida_acorazado_jugador_2:= 4;
-  vida_crucero_jugador_1:= 3;
-  vida_crucero_jugador_2:= 3;
-  vida_destructor_jugador_2:= 2;
-  vida_destructor_jugador_1:= 2;
+
+  vida_crucero_1__jugador_1:= 3;
+  vida_crucero_1_jugador_2:= 3;
+
+  vida_crucero_2__jugador_1:= 3;
+  vida_crucero_2_jugador_2:= 3;
+
+  vida_destructor_1_jugador_1:= 2;
+  vida_destructor_1_jugador_2:= 2;
+
+  vida_destructor_2_jugador_1:= 2;
+  vida_destructor_2_jugador_2:= 2;
+
+  vida_destructor_3_jugador_1:= 2;
+  vida_destructor_3_jugador_2:= 2;
+
   REPEAT
   clrscr;
   turno_jugador:= turno_jugador + 1;
@@ -1053,14 +1189,20 @@ VAR
    objetivo:= tab_2[fila,columna];
    IF objetivo = 'A' THEN
     opcion:= 1
-   ELSE IF objetivo = 'C' THEN
+   ELSE IF objetivo = 'C1' THEN
     opcion:= 2
-   ELSE IF objetivo = 'D' THEN
+   ELSE IF objetivo = 'D1' THEN
     opcion:= 3
-   ELSE IF objetivo = 'S' THEN
+   ELSE IF (objetivo = 'S1') OR (objetivo = 'S2') OR (objetivo = 'S3') OR (objetivo = 'S4') THEN
     opcion:= 4
    ELSE IF objetivo = '  ' THEN
-    opcion:= 5;
+    opcion:= 5
+   ELSE IF objetivo = 'C2' THEN
+    opcion:= 6
+   ELSE IF objetivo = 'D2' THEN
+    opcion:= 7
+   ELSE IF objetivo = 'D3' THEN
+    opcion:= 8;
    CASE opcion OF
 
       1:BEGIN
@@ -1085,15 +1227,15 @@ VAR
         END;
 
       2:BEGIN
-        IF vida_crucero_jugador_2 >= 2 THEN
+        IF vida_crucero_1_jugador_2 >= 2 THEN
          BEGIN
-         vida_crucero_jugador_2:= vida_crucero_jugador_2 - 1;
+         vida_crucero_1_jugador_2:= vida_crucero_1_jugador_2 - 1;
          tab_2[fila,columna]:= '  ';
          textcolor(yellow);
          writeln();
          cartel_crucero_daniado;
          END
-        ELSE IF vida_acorazado_jugador_2 = 1 THEN
+        ELSE IF vida_crucero_1_jugador_2 = 1 THEN
          BEGIN
          tab_2[fila,columna]:= '  ';
          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
@@ -1101,20 +1243,19 @@ VAR
          textcolor(lightred);
          writeln();
          cartel_crucero_hundido;
-         vida_crucero_jugador_2:= 3;
          END;
         END;
 
        3:BEGIN
-         IF vida_destructor_jugador_2 >= 2 THEN
+         IF vida_destructor_1_jugador_2 >= 2 THEN
           BEGIN
-          vida_destructor_jugador_2:= vida_destructor_jugador_2 - 1;
+          vida_destructor_1_jugador_2:= vida_destructor_1_jugador_2 - 1;
           tab_2[fila,columna]:= '  ';
           textcolor(yellow);
           writeln();
           cartel_destructor_daniado;
           END
-         ELSE IF vida_destructor_jugador_2 = 1 THEN
+         ELSE IF vida_destructor_1_jugador_2 = 1 THEN
           BEGIN
           tab_2[fila,columna]:= '  ';
           barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
@@ -1122,7 +1263,6 @@ VAR
           textcolor(lightred);
           writeln();
           cartel_destructor_hundido;
-          vida_destructor_jugador_2:= 2;
           END;
          END;
 
@@ -1140,6 +1280,67 @@ VAR
          writeln();
          cartel_agua;
          END;
+
+       6:BEGIN
+         IF vida_crucero_2_jugador_2 >= 2 THEN
+         BEGIN
+         vida_crucero_2_jugador_2:= vida_crucero_2_jugador_2 - 1;
+         tab_2[fila,columna]:= '  ';
+         textcolor(yellow);
+         writeln();
+         cartel_crucero_daniado;
+         END
+        ELSE IF vida_crucero_2_jugador_2 = 1 THEN
+         BEGIN
+         tab_2[fila,columna]:= '  ';
+         barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+         total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+         textcolor(lightred);
+         writeln();
+         cartel_crucero_hundido;
+         END;
+         END;
+
+      7:BEGIN
+         IF vida_destructor_2_jugador_2 >= 2 THEN
+          BEGIN
+          vida_destructor_2_jugador_2:= vida_destructor_2_jugador_2 - 1;
+          tab_2[fila,columna]:= '  ';
+          textcolor(yellow);
+          writeln();
+          cartel_destructor_daniado;
+          END
+         ELSE IF vida_destructor_2_jugador_2 = 1 THEN
+          BEGIN
+          tab_2[fila,columna]:= '  ';
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          textcolor(lightred);
+          writeln();
+          cartel_destructor_hundido;
+          END;
+         END;
+
+      8:BEGIN
+         IF vida_destructor_3_jugador_2 >= 2 THEN
+          BEGIN
+          vida_destructor_3_jugador_2:= vida_destructor_3_jugador_2 - 1;
+          tab_2[fila,columna]:= '  ';
+          textcolor(yellow);
+          writeln();
+          cartel_destructor_daniado;
+          END
+         ELSE IF vida_destructor_3_jugador_2 = 1 THEN
+          BEGIN
+          tab_2[fila,columna]:= '  ';
+          barcos_destruidos_por_el_jugador_1:= barcos_destruidos_por_el_jugador_1 + 1;
+          total_barcos_jugador_2:= total_barcos_jugador_2 - 1;
+          textcolor(lightred);
+          writeln();
+          cartel_destructor_hundido;
+          END;
+         END;
+
   END;
   turno_jugador:= turno_jugador + 1;
   delay(2000);
@@ -1211,16 +1412,22 @@ VAR
   writeln('========================================');
   writeln();
   objetivo:= tab_1[fila,columna];
-  IF objetivo = 'A' THEN
-   opcion:= 1
-  ELSE IF objetivo = 'C' THEN
-   opcion:= 2
-  ELSE IF objetivo = 'D' THEN
-   opcion:= 3
-  ELSE IF objetivo = 'S' THEN
-   opcion:= 4
-  ELSE IF objetivo = '  ' THEN
-   opcion:= 5;
+   IF objetivo = 'A' THEN
+    opcion:= 1
+   ELSE IF objetivo = 'C1' THEN
+    opcion:= 2
+   ELSE IF objetivo = 'D1' THEN
+    opcion:= 3
+   ELSE IF (objetivo = 'S1') OR (objetivo = 'S2') OR (objetivo = 'S3') OR (objetivo = 'S4') THEN
+    opcion:= 4
+   ELSE IF objetivo = '  ' THEN
+    opcion:= 5
+   ELSE IF objetivo = 'C2' THEN
+    opcion:= 6
+   ELSE IF objetivo = 'D2' THEN
+    opcion:= 7
+   ELSE IF objetivo = 'D3' THEN
+    opcion:= 8;
   CASE opcion OF
 
       1:BEGIN
@@ -1234,30 +1441,29 @@ VAR
          END
         ELSE IF vida_acorazado_jugador_1 = 1 THEN
          BEGIN
-         vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
-         tab_1[fila,columna]:= '  ';
-         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-         total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
-         textcolor(lightred);
-         writeln();
-         cartel_acorazado_hundido;
+          vida_acorazado_jugador_1:= vida_acorazado_jugador_1 - 1;
+          tab_1[fila,columna]:= '  ';
+          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+          textcolor(lightred);
+          writeln();
+          cartel_acorazado_hundido;
          END;
         END;
 
       2:BEGIN
-        IF vida_crucero_jugador_1 >= 2 THEN
+        IF vida_crucero_1__jugador_1 >= 2 THEN
          BEGIN
-         vida_crucero_jugador_1:= vida_crucero_jugador_1 - 1;
+         vida_crucero_1__jugador_1:= vida_crucero_1__jugador_1 - 1;
          tab_1[fila,columna]:= '  ';
          textcolor(yellow);
          writeln();
          cartel_crucero_daniado;
          END
-        ELSE IF  vida_crucero_jugador_1 = 1 THEN
+        ELSE IF vida_crucero_1__jugador_1 = 1 THEN
          BEGIN
          tab_1[fila,columna]:= '  ';
          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-         vida_crucero_jugador_1:= 3;
          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
          textcolor(lightred);
          writeln();
@@ -1266,19 +1472,18 @@ VAR
         END;
 
        3:BEGIN
-         IF vida_destructor_jugador_1 >= 2 THEN
+         IF vida_destructor_1_jugador_1 >= 2 THEN
           BEGIN
-          vida_destructor_jugador_1:= vida_destructor_jugador_1 - 1;
+          vida_destructor_1_jugador_1:= vida_destructor_1_jugador_1 - 1;
           tab_1[fila,columna]:= '  ';
           textcolor(yellow);
           writeln();
           cartel_destructor_daniado;
           END
-         ELSE IF vida_destructor_jugador_1 = 1 THEN
+         ELSE IF vida_destructor_1_jugador_1 = 1 THEN
           BEGIN
           tab_1[fila,columna]:= '  ';
           barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
-          vida_destructor_jugador_1:= 2;
           total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
           textcolor(lightred);
           writeln();
@@ -1300,7 +1505,69 @@ VAR
          writeln();
          cartel_agua;
          END;
+
+       6:BEGIN
+         IF vida_crucero_2__jugador_1 >= 2 THEN
+         BEGIN
+         vida_crucero_2__jugador_1:= vida_crucero_2__jugador_1 - 1;
+         tab_1[fila,columna]:= '  ';
+         textcolor(yellow);
+         writeln();
+         cartel_crucero_daniado;
+         END
+        ELSE IF vida_crucero_2__jugador_1 = 1 THEN
+         BEGIN
+         tab_1[fila,columna]:= '  ';
+         barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+         total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+         textcolor(lightred);
+         writeln();
+         cartel_crucero_hundido;
+         END;
+         END;
+
+      7:BEGIN
+         IF vida_destructor_2_jugador_1 >= 2 THEN
+          BEGIN
+          vida_destructor_2_jugador_1:= vida_destructor_2_jugador_1 - 1;
+          tab_1[fila,columna]:= '  ';
+          textcolor(yellow);
+          writeln();
+          cartel_destructor_daniado;
+          END
+         ELSE IF vida_destructor_2_jugador_1 = 1 THEN
+          BEGIN
+          tab_1[fila,columna]:= '  ';
+          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+          textcolor(lightred);
+          writeln();
+          cartel_destructor_hundido;
+          END;
+         END;
+
+      8:BEGIN
+         IF vida_destructor_3_jugador_1 >= 2 THEN
+          BEGIN
+          vida_destructor_3_jugador_1:= vida_destructor_3_jugador_1 - 1;
+          tab_1[fila,columna]:= '  ';
+          textcolor(yellow);
+          writeln();
+          cartel_destructor_daniado;
+          END
+         ELSE IF vida_destructor_3_jugador_1 = 1 THEN
+          BEGIN
+          tab_1[fila,columna]:= '  ';
+          barcos_destruidos_por_el_jugador_2:= barcos_destruidos_por_el_jugador_2 + 1;
+          total_barcos_jugador_1:= total_barcos_jugador_1 - 1;
+          textcolor(lightred);
+          writeln();
+          cartel_destructor_hundido;
+          END;
+         END;
+
   END;
+
   turno_jugador:= 0;
   delay(2000);
   END;
