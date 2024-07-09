@@ -41,6 +41,7 @@ VAR
  pos: integer;
  BEGIN
  REPEAT
+ textcolor(green);
  write('>>> Ingrese numero de fila: ');
  readln(pos);
  IF (pos < 1) OR (pos > 10) THEN
@@ -61,6 +62,7 @@ VAR
  pos: integer;
  BEGIN
  REPEAT
+ textcolor(green);
  write('>>> Ingrese numero de columna: ');
  readln(pos);
  IF (pos < 1) OR (pos > 10) THEN
@@ -81,6 +83,7 @@ VAR
  pos: integer;
  BEGIN
  REPEAT
+ textcolor(green);
  gotoxy(whereX + 60,whereY);
  write('>>> Ingrese numero de fila: ');
  readln(pos);
@@ -105,6 +108,7 @@ VAR
  pos: integer;
  BEGIN
  REPEAT
+ textcolor(green);
  gotoxy(whereX + 60,whereY);
  write('>>> Ingrese numero de columna: ');
  readln(pos);
@@ -156,6 +160,27 @@ var
   END;
  END;
 
+FUNCTION valida_opcion(): string;
+VAR
+ opcion: string;
+ BEGIN
+ REPEAT
+ textcolor(green);
+ write('De que forma desea colocarlo[vertical/horizontal]?: ');
+ readln(opcion);
+ IF (opcion <> 'vertical') AND (opcion <> 'horizontal') THEN
+  BEGIN
+  textcolor(lightred);
+  writeln();
+  writeln('======================================');
+  writeln('X VALOR INCORRECTO. INGRESE NUEVAMENTE');
+  writeln('======================================');
+  writeln();
+  END;
+ UNTIL (opcion = 'vertical') OR (opcion = 'horizontal');
+ valida_opcion:= opcion;
+ END;
+
 PROCEDURE colocar_barcos(var tab: tablero);
 VAR
  opcion: string;
@@ -170,8 +195,7 @@ BEGIN
  textcolor(green);
  writeln('COLOQUE EL ACORAZADO: ');
  writeln();
- write('De que forma desea colocarlo[vertical/horizontal]?: ');
- readln(opcion);
+ opcion:= valida_opcion;
  IF opcion = 'horizontal' THEN
  BEGIN
   writeln();
@@ -222,8 +246,7 @@ BEGIN
   writeln();
   writeln('Crucero ',x);
   writeln();
-  write('>>> De que forma desea colocarlo [vertical/horizontal]?: ');
-  readln(opcion);
+  opcion:= valida_opcion;
   IF opcion = 'horizontal' THEN
   BEGIN
    writeln();
@@ -275,8 +298,7 @@ BEGIN
   writeln();
   writeln('Destructor ',j);
   writeln();
-  write('>>> De que forma desea colocarlo [vertical/horizontal]?: ');
-  readln(opcion);
+  opcion:= valida_opcion;
   IF opcion = 'horizontal' THEN
   BEGIN
    writeln();
@@ -465,7 +487,7 @@ PROCEDURE mostrar_introduccion_instrucciones_de_juego;
  writeln('||                                                                                                                                   ||');
  writeln('||                                          BIENVENIDO AL JUEGO DE LA BATALLA DEL ATALANTICO                                         ||');
  writeln('||                                                                                                                                   ||');
- writeln('|| De 1939 a 1945 la suerte de la segunda guerra mundial dependio en buena medida del resultado final de la «batalla del Atlantico», ||');
+ writeln('|| De 1939 a 1945 la suerte de la segunda guerra mundial dependio en buena medida del resultado final de la batalla del Atlantico,   ||');
  writeln('|| un enfrentamiento que se saldo con la perdida de 648 submarinos alemanes, 3.500 buques mercantes aliados y de cerca de cien mil   ||');
  writeln('|| hombres de uno y otro bando. En este juego tendras la oportunidad de poner aprueba tu ingenio y colocar tus buques de guerra de   ||');
  writeln('|| forma estrategica para lograr vencer a tu adversario.                                                                             ||');
