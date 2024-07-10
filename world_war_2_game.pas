@@ -741,6 +741,7 @@ PROCEDURE game_over;
  BEGIN
   clrscr;
   textcolor(lightred);
+  gotoxy(whereX, whereY + 25);
   gotoxy(whereX + 55, whereY);
   writeln('  |   |                ');
   gotoxy(whereX + 55, whereY);
@@ -772,6 +773,7 @@ PROCEDURE game_over;
 PROCEDURE you_win;
  BEGIN
   textcolor(lightgreen);
+  gotoxy(whereX, whereY + 25);
   gotoxy(whereX + 55, whereY);
   writeln('  |   |                ');
   gotoxy(whereX + 55, whereY);
