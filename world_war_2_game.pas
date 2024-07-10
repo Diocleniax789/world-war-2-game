@@ -1,8 +1,3 @@
-/// LA MODIFICACION QUE HAY QUE HACERLE AL JUEGO ES EL DE CREAR POR EJEMPLO, SI TENGO DOS CRUCEROS
-/// PONERLES EL NOMBRE DE C1 Y C2, EL ERROR ACTUAL RADICA EN QUE AMBOS LLEVAN EL MISMO NOMBRE,
-// Y ESO CONFUNDE AL CONTADOR DE VIDA DEL CRUCERO, LO MISMO APLICA PARA LOS DESTRUCTORES Y
-/// AUNQUE NO AFECTA A LOS SUBMARINOS, ES NECESARIO CAMBIARLES EL NOMBRE PARA UNA MEJOR DISTINCION
-
 PROGRAM world_war_2_game;
 USES crt;
 
@@ -480,11 +475,6 @@ BEGIN
   END;
   END;
  END;
-
-
-
-
-
  textcolor(green);
  writeln();
  writeln('--------------------------------------------');
@@ -1075,6 +1065,23 @@ VAR
   verifica_estado_tablero:= false;
  END;
 
+PROCEDURE cartel_error;
+ BEGIN
+ gotoxy(whereX,whereY + 25);
+ gotoxy(whereX + 65,whereY);
+ writeln('==================================');
+ gotoxy(whereX + 65,whereY);
+ writeln('  ____|   _ \    _ \    _ \    _ \');
+ gotoxy(whereX + 65,whereY);
+ writeln(' __|    |   |  |   |  |   |  |   |');
+ gotoxy(whereX + 65,whereY);
+ writeln(' |      __ <   __ <   |   |  __ < ');
+ gotoxy(whereX + 65,whereY);
+ writeln('_____| _| \_\ _| \_\ \___/  _| \_\');
+ gotoxy(whereX + 65,whereY);
+ writeln('==================================');
+ END;
+
 PROCEDURE empezar_partida;
 VAR
  objetivo: string;
@@ -1083,9 +1090,13 @@ VAR
  IF verifica_estado_tablero() = true THEN
   BEGIN
   textcolor(lightred);
+  cartel_error;
   writeln();
+  gotoxy(whereX + 55,whereY);
   writeln('========================================================');
+  gotoxy(whereX + 55,whereY);
   writeln('X AUN LOS TABLEROS NO ESTAN CARGADOS. PRIMERO CARGELOS X');
+  gotoxy(whereX + 55,whereY);
   writeln('========================================================');
   delay(2000);
   END
