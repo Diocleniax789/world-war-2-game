@@ -1,7 +1,7 @@
 # Battle of the Atlantic
 ## Introducción al Juego
 
-"Batalla Naval: La Batalla del Atlántico" te transporta a uno de los enfrentamientos más trascendentales de la Segunda Guerra Mundial, donde la estrategia y la precisión determinarán el destino de los mares. Este juego recrea la intensa lucha en el Atlántico, permitiéndote tomar el mando de una de las dos potencias enfrentadas: Gran Bretaña o la Alemania Nazi.
+"Battle of the Atlantic" te transporta a uno de los enfrentamientos más trascendentales de la Segunda Guerra Mundial, donde la estrategia y la precisión determinarán el destino de los mares. Este juego recrea la intensa lucha en el Atlántico, permitiéndote tomar el mando de una de las dos potencias enfrentadas: Gran Bretaña o la Alemania Nazi.
 
 Como comandante, deberás elegir cuidadosamente tu bando y liderar tu flota hacia la victoria. Tu misión será localizar y destruir los barcos enemigos mientras proteges tus propios navíos. Cada decisión cuenta, y tus habilidades estratégicas serán puestas a prueba en cada turno.
 
