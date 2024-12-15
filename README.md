@@ -1,8 +1,9 @@
 # Battle of the Atlantic
 ## Introducción al Juego
 
-![cover](/image/cover.jpg)
-
+<p align = "center">
+ <img href = ('/image/cover.jpg') />
+</p>
 
 "Battle of the Atlantic" te transporta a uno de los enfrentamientos más trascendentales de la Segunda Guerra Mundial, donde la estrategia y la precisión determinarán el destino de los mares. Este juego recrea la intensa lucha en el Atlántico, permitiéndote tomar el mando de una de las dos potencias enfrentadas: Gran Bretaña o la Alemania Nazi.
 
