@@ -1,13 +1,14 @@
 # Battle of the Atlantic
-Te sumerge en uno de los enfrentamientos más épicos de la Segunda Guerra Mundial, donde la estrategia y la precisión son claves para la victoria. Como comandante de una flota naval, tu misión es localizar y destruir los barcos enemigos antes de que ellos hundan los tuyos.
+##Introducción al Juego
 
-La batalla tiene lugar en un vasto océano dividido en cuadrantes. Tus habilidades para desplegar tus barcos estratégicamente y adivinar los movimientos del enemigo serán puestas a prueba. Cada turno es una oportunidad de atacar, defender o pensar en tu próximo movimiento táctico.
+"Batalla Naval: La Batalla del Atlántico" te transporta a uno de los enfrentamientos más trascendentales de la Segunda Guerra Mundial, donde la estrategia y la precisión determinarán el destino de los mares. Este juego recrea la intensa lucha en el Atlántico, permitiéndote tomar el mando de una de las dos potencias enfrentadas: Gran Bretaña o la Alemania Nazi.
 
-¿Tienes lo necesario para liderar a tu flota hacia la victoria y cambiar el curso de la historia en el Atlántico?
+Como comandante, deberás elegir cuidadosamente tu bando y liderar tu flota hacia la victoria. Tu misión será localizar y destruir los barcos enemigos mientras proteges tus propios navíos. Cada decisión cuenta, y tus habilidades estratégicas serán puestas a prueba en cada turno.
 
 Características principales:
 
-Modo por turnos para desarrollar estrategias.
-Sistema de coordenadas que simula la localización de barcos en alta mar.
-Intensos enfrentamientos que capturan la esencia de la Batalla del Atlántico.
-¡Prepárate para zarpar y demostrar que eres el mejor estratega en esta batalla naval clásica!
+Dos bandos jugables: elige luchar por Gran Bretaña y defender la libertad, o por la Alemania Nazi y buscar la supremacía naval.
+Sistema de coordenadas para localizar y atacar barcos enemigos en alta mar.
+Partidas dinámicas por turnos que exigen planificación y adaptabilidad.
+Escenarios que capturan el espíritu de la histórica Batalla del Atlántico.
+¿Estás listo para comandar tu flota y cambiar el curso de la historia? ¡Elige tu bando y lánzate al combate!
