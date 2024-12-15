@@ -1,5 +1,5 @@
-# Battle of the Atlantic
-## Introducción al Juego
+<h1 align="center">Battle of the Atlantic</h1>
+<h2 align="center">Introduccion al juego</h2>
 
 <p align="center">
   <img src="image/cover.jpg" alt="Mi Logo" />
